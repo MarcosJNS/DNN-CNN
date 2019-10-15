@@ -1,0 +1,97 @@
+This folder  conteins the code for the CNN. it is based on Matterport's Mask-RCNN (https://github.com/matterport/Mask_RCNN). The network is applies here for cooking element detections. 
+The information in this repository is limited since the lacking parts of the code are not disclosed because of corporation issues.
+
+----------------------------------
+	     Folders
+----------------------------------
+
+- 1Modelos_entrenados: In this folder, the trained models are found.
+		       Recommendation: Each a model is saved, it is better to create an specifc folder for it whith an explicative readme to know the dataset 
+					and train parameters used each time. The name of the classes used must be in the same order as in the performed training so the weights can be used 
+					for detection.
+
+- asistente_dataset: Here there are different dataset used and saved with real images from RGB or RGBD cameras. The image tagging has been done with VIA tool, not all the images been tagged already.
+
+- handDataset: It is a datased with tagged hands with segmentation mask in the same format as the ones found in sfjlkfjasdlaskj.
+
+
+- InsertarImagenes: This folder contains some scripts to create synthetic image to speed up the process of dataset creation.
+
+- intelRealSense: en esta carpeta hay distintos scripts de ejemplo proporcionados por un repositorio de GitHub 
+		  (https://github.com/IntelRealSense/librealsense/tree/master/wrappers/python) para manejar desde python la camara Intel RealSense D415 (o cualquier RealSense)
+		  con la libreria "pyrealsense2"
+
+- mAP-master: library obtained from Github repository (https://github.com/Cartucho/mAP) to obtein AP metrics for each class. 
+
+-sort: library from (https://github.com/abewley/sort) which enables a Kalman filter + Hungarian algorithm
+
+
+----------------------------------
+	   SCRIPTS
+----------------------------------
+
+- asistente.py: este es el script base necesario para definir la configuracion de la red en el entrenamiento, asi como las clases necesarias para 
+		poder cargar nuestros datasets y transformar el formato de las etiquetas que tengamos en el formato que admite el codigo de Mask-RCNN
+                proporcionado por Matterport. Tambien se han definido algunas funciones adicionales para visualizacion de resultados. 
+		Este script seria el simil al los archivos ejemplo "balloon.py" o "nucleus.py" pero sin realizar la parte de 
+		entrenamiento e inferencia en el mismo script. En esos script ejemplo lo realizaban en el mismo porque ejecutaban todo desde la linea de 
+		comandos, pero nosotros lo hemos realizado para ejecutar los scripts desde un IDE (spyder en este caso).De esta manera a continuacion se 
+		explicara otros scripts que se utilizan para entrenamiento, inferencia, y otras funcionalidades.
+
+- calculo_mAP.py: este script carga uno de los modelos entrenados previamente, y lo ejecuta sobre un conjuno de imagenes de validacion (etiquetadas), y con
+		  los resultados obtenidos utiliza la libreria "mAP-master" transformando los resultados al formato demandado por ella para calcular la 
+		  metrica mAP de precision obtenida.
+
+- centroidtracker.py: (YA NO SE USA) es un script que contiene una clase para hacer un track de centroide de las detecciones realizadas en un video, 
+		      utilizando para ello los trackers incluidos en openCV, pero se sustituyo posteriormente por el tracker SORT.
+
+- copia_o_junta_imgsVIA.py: script que copia de una carpeta a otra imagenes etiquetadas con la herramienta VIA (http://www.robots.ox.ac.uk/~vgg/software/via/),
+			    y en caso de que en la carpeta destino ya hubiera este tipo de imagenes etiquetadas, se unen las etiquetas del JSON de la carpeta  
+			    de origen al que ya existe en la carpeta destino. Es decir, es para juntar dos datasets etiqeutados con VIA juntando no solo las 
+			    imagenes en una sola carpetas, sino tambien los dos archivos JSON donde se almacenaban sus etiquetas.
+
+- deteccion_asistente_conjuntoImagenes.py: Script que carga unos pesos entrenados de Mask-RCNN y ejectuta la red sobre las imagenes situadas en una carpeta 
+					   indicada. Los resultados son almacenados en la misma carpeta dentro de un subdirectorio llamado "detecciones".
+
+- deteccion_asistente_video.py: Script utilizado para la ejecucion de las red Mask RCNN sobre un video. Para ello se le cargan los pesos
+				entrenados previamente y se guardan los resultados obtenidos del video.
+
+- deteccion_asistente_videoRGBD_2.py: Script utilizado para la ejecucion de las red Mask RCNN sobre un video grabado con la camara RGBD intel RealSense D415.
+				      Los videos que han sido guardados en un fichero .bag son leidos y se obtiene la imagen RGB y Depth de cada frame. 
+				      En este script solo se utiliza la informacion RGB para pasarsela a la red, aunque finalmente tambien se 
+				      visualiza la profundidad no se utiliza para nada.
+
+- deteccion_asistente_videoRGBD_3_depth.py: Script utilizado para la ejecucion de las red Mask RCNN sobre un video grabado con la camara RGBD intel RealSense 
+					    D415. Los videos que han sido guardados en un fichero .bag son leidos y se obtiene la imagen RGB y Depth de cada 
+   					    frame. 
+					    En este script se utiliza la imagen de profundidad para intentar segmentar los objetos comparando la 
+					    profundidad de cada frame con la profundidad del fondo obtenida de los primeros frames. 
+					    NO se utilizan los trackers en este caso.
+
+- deteccion_asistente_videoRGBD_4_HSV_receta.py: Script utilizado para la ejecucion de las red Mask RCNN sobre un video grabado con la camara RGBD intel 
+						 RealSense D415. Los videos que han sido guardados en un fichero .bag son leidos y se obtiene la imagen RGB y
+					         Depth de cada frame. 
+   					    	 En este script se realiza un seguimiento de la accion "echar aceite para freir un filete". Para ello se 
+						 detectan primero si las sartenes estan colocadas sobre la vitro, y despues si se esta echando aceite.
+
+- deteccion_asistente_videoRGBD_4_HSVcalib.py: Script utilizado para calibrar rapidmente la segmentacion de color HSV utilizada en el script 
+					       "deteccion_asistente_videoRGBD_4_HSV_receta.py" utilizando trackbars para elegir los valores HSV umbrales.
+
+- ejemplos_imgaug.py: Script en el que se puede ver con una imagen de ejemplo las modificaciones que realiza la libreria imgaug a una foto para aumentar 
+		      el dataset. Imgaug: (https://github.com/aleju/imgaug)
+
+- extraer_frames_de_video.py: Script para ir viendo los frames de un video y guardar en disco los que se le indiquen.
+
+- inspect_asistente_data.ipynb: es un cuaderno de Jupyter MUY UTIL para comprobar si las clases que has definido en asistente.py para cargar tu dataset 
+				funcionan correctamente (lo has dejado bien en el formato demandado por codigo Mask-RCNN). En ese caso podras ejecutar 
+				desde Jupyter correctamente el cuaderno visualizando los pasos que indica.	      
+
+- recuento_objetos_dataset.py: Script utilizado para contar y mostrar todas las imagenes en las que aparece cada una de las clases, asi como el 
+			       numero de instancias totales de cada clase en el dataset completo.
+
+- train_asistente_MaskRCNN.py: script utilizado para el entrenamiento del modelo Mask-RCNN. En el se carga la configuracion de entrenamiento definida en asistente.py, 
+			       se indica los pesos de los que partir, y se cargan los dataset de entrenamiento y validacion deseados para entrenar el modelo.
+			       Los pesos entrenados en cada epoch se van guardando en la carpeta "Mask_RCNN_master/logs", y dentro de ella se ha creado una carpeta
+			       "trainnings_info" en la que se guarda la informacion de configuracion del entrenamiento cada vez que se ejecuta el script 
+			       (cuando finaliza el entrenamiento completamenta la informacion de dentro de "trainnings_info" se mueve a la carpeta de logs 
+			       correspondiente al entrenamiento actual)
