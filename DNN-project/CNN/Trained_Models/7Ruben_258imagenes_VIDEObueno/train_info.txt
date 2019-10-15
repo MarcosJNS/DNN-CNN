@@ -1,0 +1,118 @@
+
+03/04/2019 - 19h46m07s
+
+
+------------------------------------------------------------------------------------------------
+                         INFORMACION DE CONFIGURACION DE LA RED                                 
+------------------------------------------------------------------------------------------------
+BACKBONE                       resnet101
+BACKBONE_STRIDES               [4, 8, 16, 32, 64]
+BATCH_SIZE                     2
+BBOX_STD_DEV                   [0.1 0.1 0.2 0.2]
+COMPUTE_BACKBONE_SHAPE         None
+DETECTION_MAX_INSTANCES        100
+DETECTION_MIN_CONFIDENCE       0.9
+DETECTION_NMS_THRESHOLD        0.3
+FPN_CLASSIF_FC_LAYERS_SIZE     1024
+GPU_COUNT                      1
+GRADIENT_CLIP_NORM             5.0
+IMAGES_PER_GPU                 2
+IMAGE_CHANNEL_COUNT            3
+IMAGE_MAX_DIM                  1024
+IMAGE_META_SIZE                19
+IMAGE_MIN_DIM                  800
+IMAGE_MIN_SCALE                0
+IMAGE_RESIZE_MODE              square
+IMAGE_SHAPE                    [1024 1024    3]
+LEARNING_MOMENTUM              0.9
+LEARNING_RATE                  0.001
+LOSS_WEIGHTS                   {'rpn_class_loss': 1.0, 'rpn_bbox_loss': 1.0, 'mrcnn_class_loss': 1.0, 'mrcnn_bbox_loss': 1.0, 'mrcnn_mask_loss': 1.0}
+MASK_POOL_SIZE                 14
+MASK_SHAPE                     [28, 28]
+MAX_GT_INSTANCES               100
+MEAN_PIXEL                     [123.7 116.8 103.9]
+MINI_MASK_SHAPE                (56, 56)
+NAME                           asistente
+NUM_CLASSES                    7
+POOL_SIZE                      7
+POST_NMS_ROIS_INFERENCE        1000
+POST_NMS_ROIS_TRAINING         2000
+PRE_NMS_LIMIT                  6000
+ROI_POSITIVE_RATIO             0.33
+RPN_ANCHOR_RATIOS              [0.5, 1, 2]
+RPN_ANCHOR_SCALES              (32, 64, 128, 256, 512)
+RPN_ANCHOR_STRIDE              1
+RPN_BBOX_STD_DEV               [0.1 0.1 0.2 0.2]
+RPN_NMS_THRESHOLD              0.7
+RPN_TRAIN_ANCHORS_PER_IMAGE    256
+STEPS_PER_EPOCH                100
+TOP_DOWN_PYRAMID_SIZE          256
+TRAIN_BN                       False
+TRAIN_ROIS_PER_IMAGE           200
+USE_MINI_MASK                  True
+USE_RPN_ROIS                   True
+VALIDATION_STEPS               50
+WEIGHT_DECAY                   0.0001
+
+
+------------------------------------------------------------------------------------------------
+                    INFORMACION DE DATASET DE ENTRENAMIENTO/VALIDACION                          
+------------------------------------------------------------------------------------------------
+
+class_names=['BG', 'bottle', 'pan', 'pot', 'knife', 'potato', 'person']
+
+Informacion dataset ENTRENAMIENTO--------------
+
+CONTADORES DE IMAGENES POR CLASE:
+
+    clase: bottle  num_imagenes:  134
+    clase: pan  num_imagenes:  205
+    clase: pot  num_imagenes:  216
+    clase: knife  num_imagenes:  129
+    clase: potato  num_imagenes:  123
+    clase: person  num_imagenes:  98
+
+CONTADORES DE ELEMENTOS TOTALES POR CLASE:
+
+    clase: bottle  num_elementos:  343
+    clase: pan  num_elementos:  339
+    clase: pot  num_elementos:  366
+    clase: knife  num_elementos:  263
+    clase: potato  num_elementos:  405
+    clase: person  num_elementos:  108
+
+Informacion dataset VALIDACION--------------
+
+CONTADORES DE IMAGENES POR CLASE:
+
+    clase: person  num_imagenes:  14
+    clase: bottle  num_imagenes:  8
+    clase: pan  num_imagenes:  7
+    clase: pot  num_imagenes:  7
+    clase: knife  num_imagenes:  8
+    clase: potato  num_imagenes:  8
+
+CONTADORES DE ELEMENTOS TOTALES POR CLASE:
+
+    clase: person  num_elementos:  26
+    clase: bottle  num_elementos:  31
+    clase: pan  num_elementos:  12
+    clase: pot  num_elementos:  12
+    clase: knife  num_elementos:  25
+    clase: potato  num_elementos:  45
+
+
+------------------------------------------------------------------------------------------------
+                             STAGE DE ENTRENAMIENTO REALIZADA                                   
+------------------------------------------------------------------------------------------------
+layers= heads
+epochs= 100
+learning_rate= 0.001
+
+
+------------------------------------------------------------------------------------------------
+                             STAGE DE ENTRENAMIENTO REALIZADA                                   
+------------------------------------------------------------------------------------------------
+layers= 4+
+epochs= 0
+learning_rate= 0.0001

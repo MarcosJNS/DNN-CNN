@@ -1,0 +1,8 @@
+Libreria obtenida del repositorio de GitHub: https://github.com/abewley/sort
+
+Con esta librería nos permite realizar un tracking SORT (utiliza filtros de kalman + hungarian algorithm).
+El script "sort.py" es el original, y el script "sort_asis.py" ha sido modificado para realizar algunas funciones
+adicionales como calcular la velocidad de movimiento de un track.
+
+En README.md (o en el repositorio) explica un poco el funcionamiento de la libreria y como añadirla a tu propio
+programa.

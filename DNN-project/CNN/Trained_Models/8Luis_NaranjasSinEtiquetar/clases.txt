@@ -1,0 +1,1 @@
+class_names=['BG', 'bottle', 'pan', 'pot', 'knife', 'potato', 'person']
