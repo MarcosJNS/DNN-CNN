@@ -1,0 +1,195 @@
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+						INSATALACION Y ARRANQUE Mask-RCNN
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+A continuacion se describe los pasos que se siguieron para instalar y utilizar el codigo Mask-RCNN proporcinado por Matterport en un repositorio de GitHub.
+
+1.- Preparacion de entorno de desarrollo:
+   
+	- En nuestro caso se ha trabajado con python 3.7 en el entorno Anaconda (disponible tanto en Windows como en Linux o macOS).
+
+	- Para descargarlo unicamente hay que acceder a la pagina de Anaconda y descargar el instalador: 
+		https://www.anaconda.com/distribution/
+
+	- Una vez instalado Anaconda proporciona un "environment" por defecto con una serie de paquetes instalados, pero para evitar errores la mejor opcion
+	  es crearse un "environment" nuevo en el que solo tendras instalado los paquetes que tu hayas instalado. 
+	  Esto se puede realizar de dos modos distintos:
+
+	       - La interfaz visual "Anaconda Navigator": pestaña "Environments" --> pestaña "Create" ---> darle nombre y python 3.7
+
+	       - Desde el terminal de Anaconda ("Anaconda Prompt") ejecutar lo siguiente cambiando "yourenvname" por el nombre qeu quieras darle:
+			>> conda create -n yourenvname python=3.7 anaconda
+	
+	- Tras crear el nuevo "environment", hay que instalar el IDE "Spyder" para scripts ".py" (similar a Matlab) y  el IDE "Jupyter Notebook" para cuadernos 
+	  de jupyter ".ipynb". Para ello lo mas comodo es ir a:
+
+	       - La interfaz visual "Anaconda Navigator"--> pestaña "Home" --> Donde pone "Applications on" seleccionar tu nuevo "environment" que has creado,
+		 y desde alli instalar "Spyder" y "Jupyter Notebook".
+
+	- Una vez instalados estos programas, si estas en windows, tendras que tener en cuenta que ahora tienes dos aplicaciones que se llaman Spyder, una de
+	  ellas con el nombre que le has dado a tu "environment" entre parentesis. Acordarse de utilizar siempre esa ya que los paquetes que tengas instalados
+	  en tu "environment" solo seran vistos desde ese Spyder.
+
+	- A partir de ahora siempre que se quiera instalar un paquete/libreria de python en tu "environment", lo cual se realiza mediante el terminal 
+	  "Anaconda Prompt", habra que ejecutar el siguiente comando para activar tu entorno, sustituyendo "yourenvname" por el nombre que le hayas puesto:
+		>> activate yourenvname
+
+	  De este modo, cuando por defecto salia "(base)" delante de la linea de comando indicando que utilizabas el "environment" base, ahora te saldra 
+	  "(yourenvname)" indicando que estas utilizando tu "environment" y los paquetes que instales se instalaran ahi.
+	
+	----------------------------------------------------------------------------
+		Info adicional para instalar paquetes python con el terminal
+	----------------------------------------------------------------------------
+	- Para instalar paquetes puedes utilizar:
+
+		- El instalador de Anaconda:  >> conda install package_name
+
+		- El intalador de paquetes "pip": >> pip install package_name
+
+	  Normalmente podras instalar la mayoria de paquetes con conda, pero en algunas ocasiones hay paquetes que Anaconda no dispone y tendras que utilizar "pip"
+	  (sino te funiona con uno probar con otro)
+
+	- Si al intentar instalar un paquete te sale un error que dice algo de "egg_info" puede deberse a:
+		- que tienes una version anticuada de setuptools--> ejecutar:
+			>> pip install --upgrade setuptools	
+
+		- que hay algun paquete que necesita el paquete que estas intentando instalar, y que no le deja instalarlo automaticamente, por lo que tendras	
+		  que buscar como instalarlo tu. 
+
+
+2.- Descarga del codigo de Mask-RCNN y de los paquetes necesarios:
+
+	- El codigo utilizado es el proporcionado por Matterport en un repositorio de GitHub (https://github.com/matterport/Mask_RCNN) 
+
+	- Para descargar el codigo lo mas facil desde Windows es descargarlo como zip desde el repositorio. 
+
+	- Una vez tienes descargado el codigo, al final del repositorio antes de los ejemplos hay un apartado llamado "Installation" en el que te explican como 
+	  instalar los paquetes necesarios para que el codigo funcione:
+		- Primero: indica de clonar el repositorio (eso es lo mismo que descargarlo y ya esta hecho). 
+		  Para poder instalar los paquetes tendras que situar el entorno de trabajo del terminal en la carpeta del codigo descargado 
+		  (carpeta "Mask_RCNN-master"):
+			>> cd ruta_donde_tengas_la_carpeta/Mask_RCNN-master
+
+		- Segundo: indica de instalar las dependencias, lo cual es instalar los paquetes necesarios que estan indicados dentro de "requirements.txt"
+		  Para instalarlo en windows tienes que ejecutar con pip (no pip3), PERO NO LO EJECUTES HASTA LEER EL SIGUEINTE PARRAFO:
+			>> pip install -r requirements.txt  
+			
+		   Posibles problemas y recomendaciones: 
+		     - Si quieres entrenar la red con GPU hay que instalar el paquete "tensorflow-gpu" en vez de "tensorflow" (y no son compatibles) por lo que como 
+		       en "requirements.txt" esta puesto "tensorflow" tendras que modificarlo cambiando "tensorflow>=1.3.0" por "tensorflow-gpu>=1.3.0"
+
+		     - Si estas en windows hay un paquete llamado "imgaug" que tambien aparece en "requirements.txt" que te daria error al intentar instalarlo ya 
+		       que un paquete que necesita "imgaug" llamado "Shapely", que te intenta instalar automaticamente, no tiene version para windows 
+		       instalandola con pip. Sin embargo con conda si que se puede instalar "Shapely", luego antes de instalar las dependencias indicadas en 
+		       requirements.txt ejecuta el siguiente comando:
+				>> conda install Shapely
+
+		      Una vez instalado Shapely y habiendo modificado el paquete de tensorflow a instalar en "requirements.txt", ya se puede ejecutar el comando: 
+				>> pip install -r requirements.txt
+
+		- Tercero: indica de ejecutar el setup.py. Para windows hay que ejecutar con comando "python" en vez de "python3"
+				>> python setup.py install
+	
+		- Cuarto: hay que descaragarse los pesos preentrenados de de la red sobre el dataset de coco (para asi utilizarlos con transfer learning).
+		  para ello introducir el siguiente enlace en el buscador, y mover el archivo "mask_rcnn_coco.h5" descargado a la carpeta raiz del codigo
+		  (es decir, moverlo dentro de la carpeta "Mask_RCNN-master"):
+			En el buscador:  https://github.com/matterport/Mask_RCNN/releases/download/v2.0/mask_rcnn_coco.h5
+
+		- Quinto: por ultimo de manera opcional en caso de que quiseras ejecutar el ejemplo de entrenamiento/inferencia de la red con el dataset
+		  COCO (coco.py) tendrias que instalarte el paquete "pycocotools". Como se indica en el repositorio para instalarlo en windows tienes que
+		  instalar la version encontrada en (https://github.com/philferriere/cocoapi) donde te explican los pasos a seguir para su instalacion. 
+		  
+		  	- Primero instala el virtual studio del siguiente enlace con el tipo de instalación "Default":
+				 En el buscador:   https://go.microsoft.com/fwlink/?LinkId=691126
+
+			- Despues instala el paquete git con conda:
+				>> conda install git
+
+			- Y por ultimo instala desde git hub directamente el paquete "pycocotools"
+				>> pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
+			
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+				TUTORIALES COMPRENSION Y FUNCIONAMIENTO DE CODIGO Y DE Mask-RCNN
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+- A parte de mirarse el repositorio oficial del codigo (https://github.com/matterport/Mask_RCNN) donde te explican algunas cosas, la mejor forma de comprender como 
+  funciona la red y el codigo, y de como adaptarlo a tu aplicacion es leerse bien el articulo de la siguiente pagina:
+	 https://engineering.matterport.com/splash-of-color-instance-segmentation-with-mask-r-cnn-and-tensorflow-7c761e238b46
+
+  Esta pagina no solo explica la red sino que tiene un ejemplo facil de entrenamiento de la red en tu propio dataset hecho por el propio desarrollador del codigo de 
+  Mask-RCNN que estamos usando.El codigo esta disponible en el propio codigo descargado de Mask-RCNN en la carpeta: "Mask_RCNN-master/samples/balloon". 
+  Tambien explica algunas herramientas para etiquetar a mano tu propio dataset.
+
+       !AYUDA UNA VEZ SE HAYA ENTENDIDO EL CODIGO: el unico punto del codigo balloon para la configuracion del dataset que puede resultar un poco confuso es en la linea
+						   168 de balloon.py, ya que la funcion load_mask tiene que finalmente devolver las mascaras de los objetos etiquetados
+						   en formato de array numpy 3D [height, width, num_masks], y las etiquetas de clase de los objetos codificadas como 
+						   enteros (empezando desde 1 ya que el 0 es la clase fondo "BG") como array numpy 1D. Sin embargo en esta aplicacion
+						   como solo hay una clase que es globo, solo devuelve un array de unos de longitud igual al numero de objetos (ya que
+						   el numero 1 corresponde con la etiqueta de clase "globo"). El caso de varias clases se puede observar en el ejemplo
+						   "shapes", sin embargo el resto del ejemplo es un poco lioso porque no tiene imagenes de dataset sino que se las 
+						   genera a la vez que ejecuta el codigo de entrenamiento dibujando poligonos sobre fondos.
+						   
+						   
+
+- Como se puede ver tambien hay mas ejemplos a parte del de ballon en la carpeta "Mask_RCNN-master/samples". Dentro de esta carpeta es donde deberias crear otra carpeta 
+  en caso de hacer una aplicacion propia para mask-RCNN. Los ejemplo que mejor te haran comprender el funcionamiento del codigo son "balloon", "shapes", "nucleus". El 
+  ejemplo de "coco" es el original pero tambien el mas complicado, en especial por el formato en el que estan guardadas las etiquetas de este dataset, las cuales 
+  difieren mucho del resto.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+				 CARPETAS DE INTERES DENTRO DE LA CARPETA RAIZ DEL CODIGO "Mask_RCNN-master"
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+- En la carpeta "Mask_RCNN-master/logs" (creada la primera vez que ejcutes un programa de entrenamiento) se van guardando todos los pesos de las redes que vayas 
+  entrenando, separando las distintas ejecuciones que realices con subcarpetas con un timestamp. Estas subcarpetas tendran los pesos ".h5" entrenados tras cada epoch,
+  y un archivo que comienza por "events.out.tfevents." el cual se utiliza para visualizar el progreso del entrenamiento con la herramienta tensorboard. 
+
+  Un ejemplo seria el siguiente en el que nuestra carpeta logs con dos ejecuciones de entrenamiento estaria formado por lo siguiente:
+
+      - logs
+      |	 - asistente20190607T1502
+      |	 |	  - mask_rcnn_asistente_0001.h5
+      |	 |	  - events.out.tfevents.1559912597.LAB101MESA09
+      |	 - asistente20190705T1441
+      |  | 	  - ......
+      |	 | 	  - ......
+
+  Para visualizar el progreso de entrenamiento de la ejecucion "asistente20190607T1502" en tensorboard tienes que abrir el terminal de anaconda, cambiar el directorio 
+  de trabajo a la ruta de "logs", y lanzar el siguiente comando:
+  	>>  tensorboard --logdir asistente20190607T1502 --host 127.0.0.1
+
+  El argumento --host es para que se cargue tensorboard en la direccion IP local: 127.0.0.1 (es lo que hay que introducir en el buscador luego para que la pagina web de 
+  tensorboard nos muestre nuestros datos de entrenamiento). El entrenamiento en tensorboard se puede ir observando "online", es decir, mientras se esta entrenando se va 
+  actualizando las graficas.
+
+- En la carpeta "Mask_RCNN-master/mrcnn" esta situado el codigo completo de la red mask-RCNN construida, asi como las distintas funcionalidades necesarias para utilizarlo.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+							ADVERTENCIA PARA DESARROLLO DE APLICACION PROPIA
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+- Cuando vayas a modificar codigo para hacer tu aplicacion, por lo general SOLO DEBES MODIFICAR el codigo que desarrolles dentro de la carpeta "Mask_RCNN-master/samples", 
+  la carpeta "Mask_RCNN-master/mrcnn" donde esta el codigo de de todo el firmware desarrollado para utilziar la Mask-RCNN NO LO DEBES MODIFICAR. Simplemente importa este
+  codigo utilizandolo como librerias y usalo en tus funciones o clases.
+ 
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+							USO DE LA APLICACION "asistente" DESARROLLADA POR NOSOTROS
+------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+  
+
+- La carpeta "asistente" proporcionada, en el que esta el codigo desarrollado para la aplicacion del asistente de cocina, debe colocarse en la carpeta 
+  "Mask_RCNN-master/samples" para que el codigo funcione. Para la comprension de cada archivo que hay dentro de la carpeta "asistete" se ha proporcionado un fichero de texto
+  explicativo "LEEME.txt" dentro de la misma carpeta. Tal y como se explica en "LEEME.txt" la mayoria subdirectorios de asistente tambien tiene su propio "LEEME.txt"
+  para explicacion de cada archivo.
+
+
+
+
+
+ 
+
+	 
+	
