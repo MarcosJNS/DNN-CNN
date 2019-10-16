@@ -27,16 +27,15 @@ sys.path.append("C:\Program Files (x86)\IronPython 2.7\Lib")
 
 ACTIONS_pan = ['NaN', 'Place', 'Remove']
 actions=ACTIONS_pan
+N=30
+Steps=2
 
+DNNAnalysis.train_test_teasers_split('pan',N,actions)
 
+DNNAnalysis.pred_norm('pan',N,Steps)
 
-#DNNAnalysis.train_test_teasers_split('pan',30,actions)
+DNNAnalysis.just_split('pan',N,actions)
 
-#DNNAnalysis.pred_norm('pan',30,2)
+DNNAnalysis.train('pan',N,actions,train_with_predict=False)
 
-
-#DNNAnalysis.just_split('pan',30,actions)
-
-DNNAnalysis.train('pan',30,actions,train_with_predict=True)
-#
-#DNNAnalysis.predict('pan',30,actions)
+DNNAnalysis.predict('pan',N,actions)
