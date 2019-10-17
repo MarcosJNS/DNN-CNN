@@ -1,4 +1,4 @@
-# DNN/CNN
+# DNN/CNN/FNN
  
 The model, composed by two deep neural networks, has the duty of categorizing and detecting objects using a CNN. The objects detected will be tracked to infer actions with a fast learning pace - fully connected network (FNN). The convolutional neural network is adopted from [Mask-RCNN from Matterpport](https://github.com/matterport/Mask_RCNN), to track the objects thanks to the masks created on them.
 
