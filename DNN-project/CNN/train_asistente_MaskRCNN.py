@@ -20,10 +20,10 @@ import numpy as np
 from imgaug import augmenters as iaa
 
 
-from asistente import AsistenteConfig as asistenteTrainConfig
-from asistente import AsistenteDataset, save_train_information
+from CNN_Lib import CNN_Config as asistenteTrainConfig
+from CNN_Lib import CNN_Dataset, save_train_information
 
-ROOT_DIR = os.path.abspath("../../")
+ROOT_DIR = os.path.abspath("../")
 sys.path.append(ROOT_DIR)  # To find local version of the library
 
 from mrcnn import model as modellib
@@ -47,11 +47,11 @@ COCO_MODEL_PATH = os.path.join(ROOT_DIR, "mask_rcnn_coco.h5")
 DEFAULT_LOGS_DIR = os.path.join(ROOT_DIR, "logs")
 
 
-logs_dir="../../logs"
+logs_dir="logs"
 
 #weights_pretrained='comparacion_blending/1con_blending/mask_rcnn_asistente_0100.h5'  #"coco", "imagenet", "last", "INTRODUCIR path"
 weights_pretrained='last' #si pones last busca automaticamente los ultimos pesos entrenados en la carpeta logs
-#weights_pretrained='mask_rcnn_asistente_sinNaranjas.h5'
+
 
 #------------------------------------
 # Creacion de configuracion y modelo:
@@ -64,7 +64,7 @@ config.display()
 # Create model
 model = modellib.MaskRCNN(mode="training", config=config,
                           model_dir=logs_dir)
-
+print(logs_dir)
 
 #-------------------------------------------------------------
 # Seleccion de pesos de los que partir para el entrenamiento:
@@ -112,21 +112,21 @@ else:
     
 dataset_coco=os.path.join(ROOT_DIR,"samples/coco/coco_dataset")
 #dataset_asistente=os.path.join(ROOT_DIR,"samples/asistente/asistente_dataset")
-dataset_asistente=os.path.join(ROOT_DIR,"codigo_python/asistente/asistente_dataset")
+dataset_asistente=os.path.join(ROOT_DIR,"CNN/CNN_dataset")
 #dataset_asistenteSint=os.path.join(ROOT_DIR,"samples/asistente/InsertarImagenes")
-dataset_asistenteSint=os.path.join(ROOT_DIR,"codigo_python/asistente/InsertarImagenes")
+dataset_asistenteSint=os.path.join(ROOT_DIR,"CNN/Insert_Images")
 #dataset_hands = os.path.join(ROOT_DIR, "samples/asistente/handDataset")
-dataset_hands = os.path.join(ROOT_DIR, "codigo_python/asistente/handDataset")
+dataset_hands = os.path.join(ROOT_DIR, "CNN/Hand_Dataset")
 
 # Training dataset. Use the training set and 35K from the
 # validation set, as as in the Mask RCNN paper.
-dataset_train=AsistenteDataset()
+dataset_train=CNN_Dataset()
 dataset_train.load_datasetSinteticoAsist(dataset_asistenteSint, 'train_steak', clases_a_entrenar=["bottle","pan_steak", "steak"])
 dataset_train.load_asistentedataset(dataset_hands, 'train', clases_a_entrenar=["hand"])
 dataset_train.prepare()
 
 # Validation dataset
-dataset_val = AsistenteDataset()
+dataset_val = CNN_Dataset()
 dataset_val.load_asistentedataset(dataset_asistente, 'val_steak', clases_a_entrenar=["bottle","pan_steak", "steak", "hand"])
 dataset_val.prepare()
 

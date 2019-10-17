@@ -34,7 +34,7 @@ from pycocotools.coco import COCO
 from pycocotools import mask as maskUtils
 
 # Root directory of the project
-ROOT_DIR = os.path.abspath("../../")
+ROOT_DIR = os.path.abspath("../")
 
 # Import Mask RCNN
 sys.path.append(ROOT_DIR)  # To find local version of the library
@@ -43,7 +43,7 @@ from mrcnn import utils
 from mrcnn import visualize
 
 #Importamos el codigo generar_imagenes.py para poder reconstruir imagenes creadas con ese programa
-import InsertarImagenes.generar_imagenes as gen_img
+import Insert_Images.generate_images as gen_img
 
 # Path to trained weights file
 COCO_WEIGHTS_PATH = os.path.join(ROOT_DIR, "mask_rcnn_coco.h5")
@@ -57,7 +57,7 @@ DEFAULT_LOGS_DIR = os.path.join(ROOT_DIR, "logs")
 ############################################################
 
 
-class AsistenteConfig(Config):
+class CNN_Config(Config):
     """Configuration for training on the train dataset.
     Derives from the base Config class and overrides some values.
     """
@@ -111,7 +111,7 @@ class AsistenteConfig(Config):
             return list_info
         
     
-class AsistenteInferenceConfig(AsistenteConfig):
+class AsistenteInferenceConfig(CNN_Config):
     """Configuration for validation on the val dataset.
     Derives from the AsistenteConfig class and overrides some values.
     """
@@ -123,7 +123,7 @@ class AsistenteInferenceConfig(AsistenteConfig):
 #  Dataset
 ############################################################
 
-class AsistenteDataset(utils.Dataset): #Coge como clase padre la utils.Dataset, por lo que contendra sus mismos atributos y funciones más los añadidos o modificados
+class CNN_Dataset(utils.Dataset): #Coge como clase padre la utils.Dataset, por lo que contendra sus mismos atributos y funciones más los añadidos o modificados
 
     ##################################################################
     #   CARGA DE IMAGENES DESDE DATASET ASISTENTE ETIQUETADO A MANO

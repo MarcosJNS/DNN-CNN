@@ -1,0 +1,3847 @@
+{
+    "20190702_14h46m11s_71.png": {
+        "image_BG_path": "BG_steak\\71.jpg",
+        "image_size": [
+            750,
+            1000
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\6.jpg",
+            "objects\\steak\\17.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                434,
+                421
+            ],
+            [
+                321,
+                445
+            ]
+        ],
+        "scale": [
+            0.82,
+            0.44
+        ]
+    },
+    "20190702_16h44m14s_1.png": {
+        "image_BG_path": "BG_steak\\1.jpg",
+        "image_size": [
+            694,
+            1200
+        ],
+        "images_FG_path": [
+            "objects\\bottle\\32.jpg",
+            "objects\\bottle\\27.jpg",
+            "objects\\bottle\\27.jpg"
+        ],
+        "labels": [
+            "bottle",
+            "bottle",
+            "bottle"
+        ],
+        "pos_xy": [
+            [
+                48,
+                162
+            ],
+            [
+                114,
+                135
+            ],
+            [
+                194,
+                90
+            ]
+        ],
+        "scale": [
+            0.54,
+            0.76,
+            0.76
+        ]
+    },
+    "20190702_16h44m50s_3.png": {
+        "image_BG_path": "BG_steak\\3.jpg",
+        "image_size": [
+            340,
+            612
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\6.jpg",
+            "objects\\steak\\15.jpg",
+            "objects\\bottle\\44.jpg",
+            "objects\\bottle\\44.jpg",
+            "objects\\bottle\\31.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "steak",
+            "bottle",
+            "bottle",
+            "bottle"
+        ],
+        "pos_xy": [
+            [
+                237,
+                178
+            ],
+            [
+                181,
+                174
+            ],
+            [
+                61,
+                50
+            ],
+            [
+                27,
+                117
+            ],
+            [
+                578,
+                92
+            ]
+        ],
+        "scale": [
+            0.41,
+            0.11,
+            0.5,
+            0.5,
+            0.14
+        ]
+    },
+    "20190702_16h46m41s_4.png": {
+        "image_BG_path": "BG_steak\\4.jpg",
+        "image_size": [
+            494,
+            830
+        ],
+        "images_FG_path": [
+            "objects\\bottle\\31.jpg",
+            "objects\\bottle\\20.jpg",
+            "objects\\pan_steak\\1.jpg",
+            "objects\\steak\\10.jpg"
+        ],
+        "labels": [
+            "bottle",
+            "bottle",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                72,
+                44
+            ],
+            [
+                112,
+                19
+            ],
+            [
+                635,
+                71
+            ],
+            [
+                665,
+                126
+            ]
+        ],
+        "scale": [
+            0.14,
+            0.72,
+            0.76,
+            0.28
+        ]
+    },
+    "20190702_16h51m58s_4.png": {
+        "image_BG_path": "BG_steak\\4.jpg",
+        "image_size": [
+            494,
+            830
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\23.jpg",
+            "objects\\pan_steak\\38.jpg",
+            "objects\\steak\\12.jpg",
+            "objects\\bottle\\7.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "bottle"
+        ],
+        "pos_xy": [
+            [
+                667,
+                94
+            ],
+            [
+                340,
+                119
+            ],
+            [
+                317,
+                170
+            ],
+            [
+                86,
+                5
+            ]
+        ],
+        "scale": [
+            0.42,
+            0.51,
+            0.14,
+            0.49
+        ]
+    },
+    "20190702_17h14m04s_6.png": {
+        "image_BG_path": "BG_steak\\6.jpg",
+        "image_size": [
+            418,
+            491
+        ],
+        "images_FG_path": [
+            "objects\\bottle\\58.jpg",
+            "objects\\bottle\\58.jpg",
+            "objects\\bottle\\58.jpg"
+        ],
+        "labels": [
+            "bottle",
+            "bottle",
+            "bottle"
+        ],
+        "pos_xy": [
+            [
+                242,
+                12
+            ],
+            [
+                439,
+                34
+            ],
+            [
+                386,
+                8
+            ]
+        ],
+        "scale": [
+            0.04,
+            0.05,
+            0.03
+        ]
+    },
+    "20190702_17h15m12s_7.png": {
+        "image_BG_path": "BG_steak\\7.jpg",
+        "image_size": [
+            980,
+            940
+        ],
+        "images_FG_path": [
+            "objects\\bottle\\58.jpg",
+            "objects\\pan_steak\\38.jpg",
+            "objects\\pan_steak\\57.jpg",
+            "objects\\steak\\L6.jpg",
+            "objects\\steak\\L9.jpg"
+        ],
+        "labels": [
+            "bottle",
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                608,
+                57
+            ],
+            [
+                860,
+                65
+            ],
+            [
+                231,
+                585
+            ],
+            [
+                177,
+                646
+            ],
+            [
+                813,
+                137
+            ]
+        ],
+        "scale": [
+            0.11,
+            0.72,
+            0.47,
+            0.17,
+            0.21
+        ]
+    },
+    "20190702_17h16m55s_71.png": {
+        "image_BG_path": "BG_steak\\71.jpg",
+        "image_size": [
+            750,
+            1000
+        ],
+        "images_FG_path": [
+            "objects\\bottle\\47.jpg",
+            "objects\\bottle\\59.jpg",
+            "objects\\pan_steak\\39.jpg",
+            "objects\\pan_steak\\8.jpg",
+            "objects\\steak_cooked\\4.jpg"
+        ],
+        "labels": [
+            "bottle",
+            "bottle",
+            "pan_steak",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                31,
+                94
+            ],
+            [
+                864,
+                350
+            ],
+            [
+                386,
+                181
+            ],
+            [
+                444,
+                443
+            ],
+            [
+                318,
+                443
+            ]
+        ],
+        "scale": [
+            0.28,
+            0.48,
+            1.7,
+            0.78,
+            0.2
+        ]
+    },
+    "20190702_17h21m27s_72.png": {
+        "image_BG_path": "BG_steak\\72.jpg",
+        "image_size": [
+            1080,
+            1179
+        ],
+        "images_FG_path": [
+            "objects\\bottle\\17.jpg",
+            "objects\\pan_steak\\52.jpg",
+            "objects\\pan_steak\\23.jpg",
+            "objects\\steak\\L9.jpg"
+        ],
+        "labels": [
+            "bottle",
+            "pan_steak",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                305,
+                154
+            ],
+            [
+                105,
+                238
+            ],
+            [
+                785,
+                584
+            ],
+            [
+                772,
+                617
+            ]
+        ],
+        "scale": [
+            1.36,
+            1.54,
+            0.62,
+            0.17
+        ]
+    },
+    "20190702_17h23m22s_73.png": {
+        "image_BG_path": "BG_steak\\73.jpg",
+        "image_size": [
+            399,
+            599
+        ],
+        "images_FG_path": [
+            "objects\\bottle\\55.jpg",
+            "objects\\bottle\\47.jpg",
+            "objects\\bottle\\60.jpg",
+            "objects\\pan_steak\\43.jpg",
+            "objects\\pan_steak\\61.jpg",
+            "objects\\steak_cooked\\7.jpg",
+            "objects\\steak_cooked\\2.jpg"
+        ],
+        "labels": [
+            "bottle",
+            "bottle",
+            "bottle",
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                294,
+                14
+            ],
+            [
+                419,
+                43
+            ],
+            [
+                467,
+                40
+            ],
+            [
+                557,
+                240
+            ],
+            [
+                262,
+                217
+            ],
+            [
+                227,
+                218
+            ],
+            [
+                257,
+                248
+            ]
+        ],
+        "scale": [
+            0.34,
+            0.17,
+            0.45,
+            0.56,
+            0.25,
+            0.09,
+            0.07
+        ]
+    },
+    "20190702_17h24m20s_76.png": {
+        "image_BG_path": "BG_steak\\76.jpg",
+        "image_size": [
+            400,
+            600
+        ],
+        "images_FG_path": [
+            "objects\\bottle\\57.jpg",
+            "objects\\bottle\\50.jpg",
+            "objects\\bottle\\59.jpg",
+            "objects\\pan_steak\\23.jpg",
+            "objects\\steak\\L4.jpg",
+            "objects\\pan_steak\\21.jpg",
+            "objects\\steak_cooked\\10.jpg"
+        ],
+        "labels": [
+            "bottle",
+            "bottle",
+            "bottle",
+            "pan_steak",
+            "steak",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                16,
+                17
+            ],
+            [
+                78,
+                2
+            ],
+            [
+                100,
+                20
+            ],
+            [
+                468,
+                259
+            ],
+            [
+                463,
+                280
+            ],
+            [
+                89,
+                159
+            ],
+            [
+                120,
+                166
+            ]
+        ],
+        "scale": [
+            0.1,
+            0.72,
+            0.27,
+            0.29,
+            0.06,
+            0.23,
+            0.03
+        ]
+    },
+    "20190702_17h26m57s_77.png": {
+        "image_BG_path": "BG_steak\\77.jpg",
+        "image_size": [
+            376,
+            676
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\4.jpg",
+            "objects\\pan_steak\\38.jpg",
+            "objects\\steak\\11.jpg",
+            "objects\\steak_cooked\\1.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                430,
+                114
+            ],
+            [
+                198,
+                57
+            ],
+            [
+                181,
+                90
+            ],
+            [
+                431,
+                154
+            ]
+        ],
+        "scale": [
+            0.7,
+            0.34,
+            0.82,
+            0.08
+        ]
+    },
+    "20190702_17h27m17s_78.png": {
+        "image_BG_path": "BG_steak\\78.jpg",
+        "image_size": [
+            555,
+            913
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\52.jpg",
+            "objects\\pan_steak\\38.jpg",
+            "objects\\steak_cooked\\10.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                613,
+                60
+            ],
+            [
+                362,
+                347
+            ],
+            [
+                328,
+                403
+            ]
+        ],
+        "scale": [
+            1.3,
+            0.58,
+            0.14
+        ]
+    },
+    "20190702_17h28m37s_79.png": {
+        "image_BG_path": "BG_steak\\79.jpg",
+        "image_size": [
+            1080,
+            1440
+        ],
+        "images_FG_path": [
+            "objects\\steak\\13.jpg",
+            "objects\\pan_steak\\56.jpg",
+            "objects\\steak_cooked\\14.jpg"
+        ],
+        "labels": [
+            "steak",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                171,
+                58
+            ],
+            [
+                1032,
+                296
+            ],
+            [
+                1027,
+                332
+            ]
+        ],
+        "scale": [
+            1.24,
+            1.34,
+            0.17
+        ]
+    },
+    "20190702_17h29m33s_80.png": {
+        "image_BG_path": "BG_steak\\80.jpg",
+        "image_size": [
+            800,
+            800
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\5.jpg",
+            "objects\\pan_steak\\7.jpg",
+            "objects\\pan_steak\\4.jpg",
+            "objects\\steak\\18.jpg",
+            "objects\\steak_cooked\\15.jpg",
+            "objects\\steak_cooked\\10.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                645,
+                284
+            ],
+            [
+                123,
+                329
+            ],
+            [
+                434,
+                226
+            ],
+            [
+                651,
+                339
+            ],
+            [
+                422,
+                262
+            ],
+            [
+                429,
+                326
+            ]
+        ],
+        "scale": [
+            0.8,
+            1.2,
+            1.08,
+            0.78,
+            0.1,
+            0.07
+        ]
+    },
+    "20190702_17h33m38s_81.png": {
+        "image_BG_path": "BG_steak\\81.jpg",
+        "image_size": [
+            700,
+            700
+        ],
+        "images_FG_path": [
+            "objects\\bottle\\47.jpg",
+            "objects\\bottle\\49.jpg",
+            "objects\\pan_steak\\57.jpg",
+            "objects\\pan_steak\\1.jpg",
+            "objects\\pan_steak\\38.jpg",
+            "objects\\steak\\17.jpg",
+            "objects\\steak_cooked\\11.jpg"
+        ],
+        "labels": [
+            "bottle",
+            "bottle",
+            "pan_steak",
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                30,
+                19
+            ],
+            [
+                692,
+                126
+            ],
+            [
+                585,
+                287
+            ],
+            [
+                359,
+                230
+            ],
+            [
+                171,
+                268
+            ],
+            [
+                379,
+                269
+            ],
+            [
+                151,
+                307
+            ]
+        ],
+        "scale": [
+            0.18,
+            0.13,
+            0.23,
+            0.49,
+            0.38,
+            0.18,
+            0.24
+        ]
+    },
+    "20190702_17h34m24s_84.png": {
+        "image_BG_path": "BG_steak\\84.jpg",
+        "image_size": [
+            476,
+            405
+        ],
+        "images_FG_path": [
+            "objects\\bottle\\16.jpg",
+            "objects\\pan_steak\\21.jpg",
+            "objects\\pan_steak\\56.jpg"
+        ],
+        "labels": [
+            "bottle",
+            "pan_steak",
+            "pan_steak"
+        ],
+        "pos_xy": [
+            [
+                16,
+                11
+            ],
+            [
+                49,
+                137
+            ],
+            [
+                302,
+                133
+            ]
+        ],
+        "scale": [
+            0.58,
+            0.2,
+            0.38
+        ]
+    },
+    "20190702_17h35m27s_85.png": {
+        "image_BG_path": "BG_steak\\85.jpg",
+        "image_size": [
+            381,
+            635
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\56.jpg",
+            "objects\\pan_steak\\38.jpg",
+            "objects\\steak\\2.jpg",
+            "objects\\steak\\L4.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                238,
+                68
+            ],
+            [
+                453,
+                147
+            ],
+            [
+                441,
+                175
+            ],
+            [
+                229,
+                77
+            ]
+        ],
+        "scale": [
+            0.48,
+            0.32,
+            0.06,
+            0.08
+        ]
+    },
+    "20190702_17h36m11s_87.png": {
+        "image_BG_path": "BG_steak\\87.jpg",
+        "image_size": [
+            476,
+            634
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\57.jpg",
+            "objects\\pan_steak\\4.jpg",
+            "objects\\steak_cooked\\3.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                472,
+                116
+            ],
+            [
+                186,
+                222
+            ],
+            [
+                185,
+                264
+            ]
+        ],
+        "scale": [
+            0.15,
+            0.84,
+            0.1
+        ]
+    },
+    "20190702_17h47m46s_81.png": {
+        "image_BG_path": "BG_steak\\81.jpg",
+        "image_size": [
+            700,
+            700
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\5.jpg",
+            "objects\\pan_steak\\6.jpg",
+            "objects\\steak_cooked\\3.jpg",
+            "objects\\steak_cooked\\13.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                228,
+                165
+            ],
+            [
+                559,
+                427
+            ],
+            [
+                502,
+                420
+            ],
+            [
+                228,
+                204
+            ]
+        ],
+        "scale": [
+            0.62,
+            0.42,
+            0.11,
+            0.06
+        ]
+    },
+    "20190702_17h48m19s_154.png": {
+        "image_BG_path": "BG_steak\\154.jpg",
+        "image_size": [
+            750,
+            1000
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\3.jpg",
+            "objects\\pan_steak\\39.jpg",
+            "objects\\steak\\10.jpg",
+            "objects\\steak_cooked\\4.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                231,
+                339
+            ],
+            [
+                850,
+                427
+            ],
+            [
+                777,
+                425
+            ],
+            [
+                235,
+                427
+            ]
+        ],
+        "scale": [
+            0.29,
+            2.36,
+            0.32,
+            0.16
+        ]
+    },
+    "20190702_17h48m43s_155.png": {
+        "image_BG_path": "BG_steak\\155.jpg",
+        "image_size": [
+            194,
+            260
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\4.jpg",
+            "objects\\pan_steak\\39.jpg",
+            "objects\\steak\\L9.jpg",
+            "objects\\steak_cooked\\18.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                67,
+                104
+            ],
+            [
+                204,
+                58
+            ],
+            [
+                69,
+                133
+            ],
+            [
+                176,
+                61
+            ]
+        ],
+        "scale": [
+            0.38,
+            0.86,
+            0.05,
+            0.06
+        ]
+    },
+    "20190702_17h49m10s_159.png": {
+        "image_BG_path": "BG_steak\\159.jpg",
+        "image_size": [
+            337,
+            600
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\60.jpg",
+            "objects\\steak_cooked\\5.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                382,
+                120
+            ],
+            [
+                384,
+                160
+            ]
+        ],
+        "scale": [
+            0.16,
+            0.19
+        ]
+    },
+    "20190702_17h49m42s_160.png": {
+        "image_BG_path": "BG_steak\\160.jpg",
+        "image_size": [
+            1018,
+            1792
+        ],
+        "images_FG_path": [
+            "objects\\bottle\\60.jpg",
+            "objects\\bottle\\58.jpg",
+            "objects\\pan_steak\\57.jpg",
+            "objects\\pan_steak\\61.jpg",
+            "objects\\steak\\1.jpg"
+        ],
+        "labels": [
+            "bottle",
+            "bottle",
+            "pan_steak",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                42,
+                242
+            ],
+            [
+                1323,
+                60
+            ],
+            [
+                1065,
+                204
+            ],
+            [
+                1161,
+                433
+            ],
+            [
+                1128,
+                463
+            ]
+        ],
+        "scale": [
+            0.66,
+            0.15,
+            0.38,
+            0.53,
+            0.88
+        ]
+    },
+    "20190702_17h52m02s_162.png": {
+        "image_BG_path": "BG_steak\\162.jpg",
+        "image_size": [
+            675,
+            1200
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\60.jpg",
+            "objects\\pan_steak\\6.jpg",
+            "objects\\steak\\12.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                450,
+                216
+            ],
+            [
+                774,
+                299
+            ],
+            [
+                718,
+                299
+            ]
+        ],
+        "scale": [
+            0.24,
+            0.41,
+            0.12
+        ]
+    },
+    "20190702_18h11m00s_4.png": {
+        "image_BG_path": "BG_steak\\4.jpg",
+        "image_size": [
+            494,
+            830
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\7.jpg",
+            "objects\\pan_steak\\60.jpg",
+            "objects\\steak\\1.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                591,
+                123
+            ],
+            [
+                249,
+                69
+            ],
+            [
+                68,
+                71
+            ]
+        ],
+        "scale": [
+            1.7,
+            0.27,
+            0.48
+        ]
+    },
+    "20190702_18h12m20s_7.png": {
+        "image_BG_path": "BG_steak\\7.jpg",
+        "image_size": [
+            980,
+            940
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\52.jpg",
+            "objects\\pan_steak\\1.jpg",
+            "objects\\steak\\L2.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                533,
+                243
+            ],
+            [
+                129,
+                556
+            ],
+            [
+                158,
+                635
+            ]
+        ],
+        "scale": [
+            1.14,
+            1.0,
+            0.46
+        ]
+    },
+    "20190702_18h12m33s_71.png": {
+        "image_BG_path": "BG_steak\\71.jpg",
+        "image_size": [
+            750,
+            1000
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\6.jpg",
+            "objects\\steak_cooked\\11.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                419,
+                433
+            ],
+            [
+                303,
+                436
+            ]
+        ],
+        "scale": [
+            0.78,
+            0.6
+        ]
+    },
+    "20190702_18h12m45s_76.png": {
+        "image_BG_path": "BG_steak\\76.jpg",
+        "image_size": [
+            400,
+            600
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\38.jpg",
+            "objects\\steak\\L12.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                478,
+                241
+            ],
+            [
+                462,
+                274
+            ]
+        ],
+        "scale": [
+            0.36,
+            0.11
+        ]
+    },
+    "20190702_18h13m07s_78.png": {
+        "image_BG_path": "BG_steak\\78.jpg",
+        "image_size": [
+            555,
+            913
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\61.jpg",
+            "objects\\pan_steak\\52.jpg",
+            "objects\\steak_cooked\\17.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                353,
+                368
+            ],
+            [
+                617,
+                71
+            ],
+            [
+                327,
+                394
+            ]
+        ],
+        "scale": [
+            0.38,
+            1.06,
+            0.17
+        ]
+    },
+    "20190702_18h13m30s_79.png": {
+        "image_BG_path": "BG_steak\\79.jpg",
+        "image_size": [
+            1080,
+            1440
+        ],
+        "images_FG_path": [
+            "objects\\bottle\\48.jpg",
+            "objects\\steak\\1.jpg",
+            "objects\\pan_steak\\21.jpg"
+        ],
+        "labels": [
+            "bottle",
+            "steak",
+            "pan_steak"
+        ],
+        "pos_xy": [
+            [
+                78,
+                160
+            ],
+            [
+                234,
+                66
+            ],
+            [
+                897,
+                293
+            ]
+        ],
+        "scale": [
+            0.46,
+            0.66,
+            0.64
+        ]
+    },
+    "20190702_18h13m42s_80.png": {
+        "image_BG_path": "BG_steak\\80.jpg",
+        "image_size": [
+            800,
+            800
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\3.jpg",
+            "objects\\pan_steak\\5.jpg",
+            "objects\\steak\\1.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                442,
+                229
+            ],
+            [
+                177,
+                278
+            ],
+            [
+                441,
+                293
+            ]
+        ],
+        "scale": [
+            0.24,
+            0.64,
+            0.64
+        ]
+    },
+    "20190702_18h13m59s_81.png": {
+        "image_BG_path": "BG_steak\\81.jpg",
+        "image_size": [
+            700,
+            700
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\4.jpg",
+            "objects\\pan_steak\\11.jpg",
+            "objects\\steak_cooked\\19.jpg",
+            "objects\\steak_cooked\\3.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                373,
+                223
+            ],
+            [
+                517,
+                359
+            ],
+            [
+                378,
+                274
+            ],
+            [
+                519,
+                407
+            ]
+        ],
+        "scale": [
+            0.88,
+            0.58,
+            0.1,
+            0.1
+        ]
+    },
+    "20190702_18h14m40s_154.png": {
+        "image_BG_path": "BG_steak\\154.jpg",
+        "image_size": [
+            750,
+            1000
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\5.jpg",
+            "objects\\pan_steak\\10.jpg",
+            "objects\\steak_cooked\\2.jpg",
+            "objects\\steak_cooked\\15.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                232,
+                369
+            ],
+            [
+                498,
+                220
+            ],
+            [
+                501,
+                307
+            ],
+            [
+                231,
+                442
+            ]
+        ],
+        "scale": [
+            1.12,
+            0.98,
+            0.17,
+            0.12
+        ]
+    },
+    "20190702_18h15m02s_155.png": {
+        "image_BG_path": "BG_steak\\155.jpg",
+        "image_size": [
+            194,
+            260
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\39.jpg",
+            "objects\\pan_steak\\2.jpg",
+            "objects\\steak\\L6.jpg",
+            "objects\\steak_cooked\\9.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                218,
+                131
+            ],
+            [
+                72,
+                98
+            ],
+            [
+                195,
+                132
+            ],
+            [
+                74,
+                130
+            ]
+        ],
+        "scale": [
+            0.76,
+            0.35,
+            0.04,
+            0.04
+        ]
+    },
+    "20190702_18h15m15s_156.png": {
+        "image_BG_path": "BG_steak\\156.jpg",
+        "image_size": [
+            154,
+            327
+        ],
+        "images_FG_path": [
+            "objects\\bottle\\17.jpg",
+            "objects\\pan_steak\\38.jpg"
+        ],
+        "labels": [
+            "bottle",
+            "pan_steak"
+        ],
+        "pos_xy": [
+            [
+                15,
+                89
+            ],
+            [
+                253,
+                41
+            ]
+        ],
+        "scale": [
+            0.76,
+            0.14
+        ]
+    },
+    "20190702_18h15m28s_157.png": {
+        "image_BG_path": "BG_steak\\157.jpg",
+        "image_size": [
+            308,
+            462
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\43.jpg",
+            "objects\\bottle\\14.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "bottle"
+        ],
+        "pos_xy": [
+            [
+                208,
+                178
+            ],
+            [
+                406,
+                182
+            ]
+        ],
+        "scale": [
+            0.44,
+            0.22
+        ]
+    },
+    "20190702_18h20m53s_159.png": {
+        "image_BG_path": "BG_steak\\159.jpg",
+        "image_size": [
+            337,
+            600
+        ],
+        "images_FG_path": [
+            "objects\\bottle\\14.jpg",
+            "objects\\bottle\\17.jpg",
+            "objects\\pan_steak\\5.jpg",
+            "objects\\steak_cooked\\6.jpg"
+        ],
+        "labels": [
+            "bottle",
+            "bottle",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                30,
+                97
+            ],
+            [
+                544,
+                21
+            ],
+            [
+                376,
+                122
+            ],
+            [
+                380,
+                158
+            ]
+        ],
+        "scale": [
+            0.17,
+            0.66,
+            0.51,
+            0.11
+        ]
+    },
+    "20190702_18h21m08s_160.png": {
+        "image_BG_path": "BG_steak\\160.jpg",
+        "image_size": [
+            1018,
+            1792
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\61.jpg",
+            "objects\\steak\\10.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                634,
+                335
+            ],
+            [
+                614,
+                376
+            ]
+        ],
+        "scale": [
+            0.4,
+            0.36
+        ]
+    },
+    "20190702_18h21m47s_162.png": {
+        "image_BG_path": "BG_steak\\162.jpg",
+        "image_size": [
+            675,
+            1200
+        ],
+        "images_FG_path": [
+            "objects\\bottle\\40.jpg",
+            "objects\\bottle\\49.jpg",
+            "objects\\pan_steak\\38.jpg",
+            "objects\\pan_steak\\2.jpg",
+            "objects\\steak_cooked\\2.jpg"
+        ],
+        "labels": [
+            "bottle",
+            "bottle",
+            "pan_steak",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                55,
+                153
+            ],
+            [
+                1137,
+                44
+            ],
+            [
+                742,
+                268
+            ],
+            [
+                475,
+                294
+            ],
+            [
+                472,
+                353
+            ]
+        ],
+        "scale": [
+            0.43,
+            0.16,
+            0.4,
+            0.68,
+            0.08
+        ]
+    },
+    "20190703_14h51m50s_1_Color.png": {
+        "image_BG_path": "BG_steak\\1_Color.png",
+        "image_size": [
+            540,
+            960
+        ],
+        "images_FG_path": [
+            "objects\\bottle\\48.jpg",
+            "objects\\pan_steak\\8.jpg",
+            "objects\\pan_steak\\38.jpg"
+        ],
+        "labels": [
+            "bottle",
+            "pan_steak",
+            "pan_steak"
+        ],
+        "pos_xy": [
+            [
+                878,
+                122
+            ],
+            [
+                377,
+                315
+            ],
+            [
+                579,
+                121
+            ]
+        ],
+        "scale": [
+            0.3,
+            0.51,
+            0.41
+        ]
+    },
+    "20190703_14h53m49s_2_Color.png": {
+        "image_BG_path": "BG_steak\\2_Color.png",
+        "image_size": [
+            540,
+            960
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\57.jpg",
+            "objects\\pan_steak\\43.jpg",
+            "objects\\steak\\15.jpg",
+            "objects\\steak\\L6.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                288,
+                259
+            ],
+            [
+                584,
+                115
+            ],
+            [
+                243,
+                301
+            ],
+            [
+                841,
+                421
+            ]
+        ],
+        "scale": [
+            0.33,
+            0.62,
+            0.12,
+            0.19
+        ]
+    },
+    "20190703_14h56m38s_3_Color.png": {
+        "image_BG_path": "BG_steak\\3_Color.png",
+        "image_size": [
+            540,
+            960
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\8.jpg",
+            "objects\\steak_cooked\\20.jpg",
+            "objects\\bottle\\50.jpg",
+            "objects\\bottle\\12.jpg",
+            "objects\\pan_steak\\60.jpg",
+            "objects\\steak\\10.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "steak",
+            "bottle",
+            "bottle",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                299,
+                358
+            ],
+            [
+                189,
+                365
+            ],
+            [
+                774,
+                28
+            ],
+            [
+                895,
+                96
+            ],
+            [
+                493,
+                92
+            ],
+            [
+                496,
+                156
+            ]
+        ],
+        "scale": [
+            0.55,
+            0.2,
+            1.04,
+            0.23,
+            0.27,
+            0.21
+        ]
+    },
+    "20190703_14h58m30s_4.png": {
+        "image_BG_path": "BG_steak\\4.jpg",
+        "image_size": [
+            494,
+            830
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\1.jpg",
+            "objects\\bottle\\17.jpg",
+            "objects\\bottle\\55.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "bottle",
+            "bottle"
+        ],
+        "pos_xy": [
+            [
+                624,
+                95
+            ],
+            [
+                224,
+                110
+            ],
+            [
+                104,
+                85
+            ]
+        ],
+        "scale": [
+            0.82,
+            1.04,
+            0.37
+        ]
+    },
+    "20190703_15h00m31s_4_Color.png": {
+        "image_BG_path": "BG_steak\\4_Color.png",
+        "image_size": [
+            540,
+            960
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\6.jpg",
+            "objects\\steak\\L2.jpg",
+            "objects\\pan_steak\\5.jpg",
+            "objects\\steak_cooked\\14.jpg",
+            "objects\\bottle\\16.jpg",
+            "objects\\bottle\\57.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "steak",
+            "pan_steak",
+            "steak",
+            "bottle",
+            "bottle"
+        ],
+        "pos_xy": [
+            [
+                460,
+                284
+            ],
+            [
+                383,
+                288
+            ],
+            [
+                655,
+                101
+            ],
+            [
+                657,
+                165
+            ],
+            [
+                128,
+                107
+            ],
+            [
+                96,
+                376
+            ]
+        ],
+        "scale": [
+            0.53,
+            0.3,
+            0.8,
+            0.09,
+            1.0,
+            0.17
+        ]
+    },
+    "20190703_15h02m16s_5_Color.png": {
+        "image_BG_path": "BG_steak\\5_Color.png",
+        "image_size": [
+            540,
+            960
+        ],
+        "images_FG_path": [
+            "objects\\steak\\L12.jpg",
+            "objects\\steak\\L7.jpg",
+            "objects\\pan_steak\\38.jpg",
+            "objects\\steak_cooked\\5.jpg",
+            "objects\\pan_steak\\45.jpg",
+            "objects\\pan_steak\\52.jpg"
+        ],
+        "labels": [
+            "steak",
+            "steak",
+            "pan_steak",
+            "steak",
+            "pan_steak",
+            "pan_steak"
+        ],
+        "pos_xy": [
+            [
+                701,
+                428
+            ],
+            [
+                438,
+                445
+            ],
+            [
+                494,
+                180
+            ],
+            [
+                475,
+                225
+            ],
+            [
+                84,
+                244
+            ],
+            [
+                325,
+                90
+            ]
+        ],
+        "scale": [
+            0.18,
+            0.15,
+            0.39,
+            0.26,
+            0.58,
+            0.78
+        ]
+    },
+    "20190703_15h04m08s_6.png": {
+        "image_BG_path": "BG_steak\\6.jpg",
+        "image_size": [
+            418,
+            491
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\52.jpg",
+            "objects\\steak_cooked\\5.jpg",
+            "objects\\steak_cooked\\6.jpg",
+            "objects\\bottle\\45.jpg",
+            "objects\\pan_steak\\20.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "steak",
+            "steak",
+            "bottle",
+            "pan_steak"
+        ],
+        "pos_xy": [
+            [
+                324,
+                91
+            ],
+            [
+                294,
+                106
+            ],
+            [
+                365,
+                108
+            ],
+            [
+                57,
+                184
+            ],
+            [
+                159,
+                278
+            ]
+        ],
+        "scale": [
+            1.04,
+            0.17,
+            0.11,
+            0.23,
+            0.35
+        ]
+    },
+    "20190703_15h06m16s_6_Color.png": {
+        "image_BG_path": "BG_steak\\6_Color.png",
+        "image_size": [
+            540,
+            960
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\20.jpg",
+            "objects\\steak\\L5.jpg",
+            "objects\\steak_cooked\\12.jpg",
+            "objects\\bottle\\18.jpg",
+            "objects\\steak\\L8.jpg",
+            "objects\\bottle\\7.jpg",
+            "objects\\bottle\\17.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "steak",
+            "steak",
+            "bottle",
+            "steak",
+            "bottle",
+            "bottle"
+        ],
+        "pos_xy": [
+            [
+                214,
+                286
+            ],
+            [
+                823,
+                465
+            ],
+            [
+                274,
+                293
+            ],
+            [
+                795,
+                75
+            ],
+            [
+                852,
+                316
+            ],
+            [
+                893,
+                147
+            ],
+            [
+                117,
+                118
+            ]
+        ],
+        "scale": [
+            0.41,
+            0.2,
+            0.08,
+            0.12,
+            0.27,
+            0.38,
+            0.92
+        ]
+    },
+    "20190703_15h08m16s_71.png": {
+        "image_BG_path": "BG_steak\\71.jpg",
+        "image_size": [
+            750,
+            1000
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\43.jpg",
+            "objects\\pan_steak\\11.jpg",
+            "objects\\steak\\9.png",
+            "objects\\bottle\\47.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "bottle"
+        ],
+        "pos_xy": [
+            [
+                91,
+                146
+            ],
+            [
+                321,
+                340
+            ],
+            [
+                323,
+                431
+            ],
+            [
+                911,
+                402
+            ]
+        ],
+        "scale": [
+            0.84,
+            0.96,
+            0.09,
+            0.24
+        ]
+    },
+    "20190703_15h10m42s_7_Color.png": {
+        "image_BG_path": "BG_steak\\7_Color.png",
+        "image_size": [
+            540,
+            960
+        ],
+        "images_FG_path": [
+            "objects\\steak\\3.jpg",
+            "objects\\pan_steak\\3.jpg",
+            "objects\\pan_steak\\20.jpg",
+            "objects\\steak_cooked\\13.jpg",
+            "objects\\steak\\L2.jpg"
+        ],
+        "labels": [
+            "steak",
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                841,
+                424
+            ],
+            [
+                191,
+                258
+            ],
+            [
+                386,
+                124
+            ],
+            [
+                440,
+                130
+            ],
+            [
+                188,
+                317
+            ]
+        ],
+        "scale": [
+            0.3,
+            0.19,
+            0.33,
+            0.06,
+            0.26
+        ]
+    },
+    "20190703_15h12m20s_80.png": {
+        "image_BG_path": "BG_steak\\80.jpg",
+        "image_size": [
+            800,
+            800
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\11.jpg",
+            "objects\\steak\\14.jpg",
+            "objects\\steak\\L11.jpg",
+            "objects\\bottle\\17.jpg",
+            "objects\\bottle\\24.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "steak",
+            "steak",
+            "bottle",
+            "bottle"
+        ],
+        "pos_xy": [
+            [
+                165,
+                260
+            ],
+            [
+                316,
+                330
+            ],
+            [
+                168,
+                322
+            ],
+            [
+                662,
+                135
+            ],
+            [
+                499,
+                84
+            ]
+        ],
+        "scale": [
+            0.55,
+            0.2,
+            0.07,
+            1.0,
+            0.27
+        ]
+    },
+    "20190703_15h13m44s_1.png": {
+        "image_BG_path": "BG_steak\\1.jpg",
+        "image_size": [
+            694,
+            1200
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\3.jpg",
+            "objects\\steak\\10.jpg",
+            "objects\\bottle\\55.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "steak",
+            "bottle"
+        ],
+        "pos_xy": [
+            [
+                735,
+                348
+            ],
+            [
+                721,
+                469
+            ],
+            [
+                224,
+                165
+            ]
+        ],
+        "scale": [
+            0.4,
+            0.47,
+            0.56
+        ]
+    },
+    "20190703_15h14m05s_151.png": {
+        "image_BG_path": "BG_steak\\151.jpg",
+        "image_size": [
+            308,
+            462
+        ],
+        "images_FG_path": [
+            "objects\\steak\\1.jpg"
+        ],
+        "labels": [
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                293,
+                263
+            ]
+        ],
+        "scale": [
+            0.37
+        ]
+    },
+    "20190703_15h14m54s_153.png": {
+        "image_BG_path": "BG_steak\\153.jpg",
+        "image_size": [
+            408,
+            1104
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\43.jpg",
+            "objects\\bottle\\31.jpg",
+            "objects\\steak_cooked\\3.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "bottle",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                815,
+                258
+            ],
+            [
+                104,
+                118
+            ],
+            [
+                765,
+                252
+            ]
+        ],
+        "scale": [
+            0.9,
+            0.15,
+            0.09
+        ]
+    },
+    "20190703_15h17m05s_154.png": {
+        "image_BG_path": "BG_steak\\154.jpg",
+        "image_size": [
+            750,
+            1000
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\4.jpg",
+            "objects\\steak\\L6.jpg",
+            "objects\\pan_steak\\2.jpg",
+            "objects\\steak_cooked\\16.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "steak",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                228,
+                364
+            ],
+            [
+                234,
+                443
+            ],
+            [
+                784,
+                329
+            ],
+            [
+                785,
+                437
+            ]
+        ],
+        "scale": [
+            1.22,
+            0.15,
+            1.0,
+            0.11
+        ]
+    },
+    "20190703_15h19m16s_160.png": {
+        "image_BG_path": "BG_steak\\160.jpg",
+        "image_size": [
+            1018,
+            1792
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\6.jpg",
+            "objects\\steak\\15.jpg",
+            "objects\\steak\\L9.jpg",
+            "objects\\pan_steak\\52.jpg",
+            "objects\\steak_cooked\\2.jpg",
+            "objects\\steak_cooked\\4.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "steak",
+            "steak",
+            "pan_steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                753,
+                570
+            ],
+            [
+                660,
+                538
+            ],
+            [
+                681,
+                629
+            ],
+            [
+                1031,
+                231
+            ],
+            [
+                987,
+                247
+            ],
+            [
+                1075,
+                251
+            ]
+        ],
+        "scale": [
+            0.66,
+            0.16,
+            0.14,
+            1.26,
+            0.08,
+            0.07
+        ]
+    },
+    "20190703_15h21m19s_162.png": {
+        "image_BG_path": "BG_steak\\162.jpg",
+        "image_size": [
+            675,
+            1200
+        ],
+        "images_FG_path": [
+            "objects\\bottle\\58.jpg",
+            "objects\\bottle\\17.jpg",
+            "objects\\pan_steak\\57.jpg",
+            "objects\\pan_steak\\21.jpg",
+            "objects\\steak\\3.jpg",
+            "objects\\steak\\L12.jpg",
+            "objects\\steak_cooked\\17.jpg"
+        ],
+        "labels": [
+            "bottle",
+            "bottle",
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                115,
+                136
+            ],
+            [
+                1083,
+                192
+            ],
+            [
+                751,
+                280
+            ],
+            [
+                397,
+                248
+            ],
+            [
+                719,
+                313
+            ],
+            [
+                184,
+                447
+            ],
+            [
+                465,
+                250
+            ]
+        ],
+        "scale": [
+            0.1,
+            1.04,
+            0.27,
+            0.34,
+            0.19,
+            0.18,
+            0.08
+        ]
+    },
+    "20190703_18h19m04s_161.png": {
+        "image_BG_path": "BG_steak\\161.jpg",
+        "image_size": [
+            185,
+            272
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\2_ColorB.png",
+            "objects\\steak_cooked\\6.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                192,
+                99
+            ],
+            [
+                183,
+                88
+            ]
+        ],
+        "scale": [
+            0.21,
+            0.07
+        ]
+    },
+    "20190703_18h20m34s_2_Color.png": {
+        "image_BG_path": "BG_steak\\2_Color.png",
+        "image_size": [
+            540,
+            960
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\3_Color.png",
+            "objects\\pan_steak\\10_Color.png",
+            "objects\\steak\\10.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                601,
+                329
+            ],
+            [
+                300,
+                137
+            ],
+            [
+                308,
+                175
+            ]
+        ],
+        "scale": [
+            0.66,
+            0.66,
+            0.28
+        ]
+    },
+    "20190704_09h15m57s_153.png": {
+        "image_BG_path": "BG_steak\\153.jpg",
+        "image_size": [
+            408,
+            1104
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\8_ColorB.png",
+            "objects\\steak_cooked\\16.jpg",
+            "objects\\pan_steak\\23.jpg",
+            "objects\\steak\\3.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "steak",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                1069,
+                211
+            ],
+            [
+                1047,
+                249
+            ],
+            [
+                359,
+                236
+            ],
+            [
+                343,
+                263
+            ]
+        ],
+        "scale": [
+            0.71,
+            0.09,
+            0.4,
+            0.16
+        ]
+    },
+    "20190704_09h22m43s_2_Color.png": {
+        "image_BG_path": "BG_steak\\2_Color.png",
+        "image_size": [
+            540,
+            960
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\5_ColorB.png",
+            "objects\\pan_steak\\13_Color.png",
+            "objects\\steak_cooked\\18.jpg",
+            "objects\\steak_cooked\\5.jpg",
+            "objects\\steak\\L12.jpg",
+            "objects\\bottle\\19.jpg",
+            "objects\\bottle\\18.jpg",
+            "objects\\bottle\\58.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak",
+            "steak",
+            "bottle",
+            "bottle",
+            "bottle"
+        ],
+        "pos_xy": [
+            [
+                610,
+                313
+            ],
+            [
+                154,
+                296
+            ],
+            [
+                221,
+                314
+            ],
+            [
+                552,
+                327
+            ],
+            [
+                834,
+                420
+            ],
+            [
+                778,
+                95
+            ],
+            [
+                898,
+                66
+            ],
+            [
+                863,
+                205
+            ]
+        ],
+        "scale": [
+            0.7,
+            0.74,
+            0.14,
+            0.3,
+            0.16,
+            0.19,
+            0.1,
+            0.09
+        ]
+    },
+    "20190704_09h35m19s_153.png": {
+        "image_BG_path": "BG_steak\\153.jpg",
+        "image_size": [
+            408,
+            1104
+        ],
+        "images_FG_path": [
+            "objects\\bottle\\10.jpg",
+            "objects\\pan_steak\\56.jpg",
+            "objects\\steak_cooked\\14.jpg"
+        ],
+        "labels": [
+            "bottle",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                72,
+                110
+            ],
+            [
+                801,
+                247
+            ],
+            [
+                804,
+                269
+            ]
+        ],
+        "scale": [
+            0.38,
+            0.7,
+            0.08
+        ]
+    },
+    "20190704_09h38m57s_1_Color.png": {
+        "image_BG_path": "BG_steak\\1_Color.png",
+        "image_size": [
+            540,
+            960
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\5_ColorB.png",
+            "objects\\pan_steak\\2_ColorB.png",
+            "objects\\pan_steak\\15_Color.png",
+            "objects\\steak\\3.jpg",
+            "objects\\steak\\1.jpg",
+            "objects\\steak_cooked\\16.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                656,
+                136
+            ],
+            [
+                652,
+                371
+            ],
+            [
+                275,
+                388
+            ],
+            [
+                286,
+                339
+            ],
+            [
+                598,
+                139
+            ],
+            [
+                609,
+                329
+            ]
+        ],
+        "scale": [
+            0.6,
+            0.68,
+            0.72,
+            0.18,
+            0.4,
+            0.09
+        ]
+    },
+    "20190704_09h39m33s_2_Color.png": {
+        "image_BG_path": "BG_steak\\2_Color.png",
+        "image_size": [
+            540,
+            960
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\1.jpg",
+            "objects\\pan_steak\\39.jpg",
+            "objects\\steak\\7.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                256,
+                131
+            ],
+            [
+                581,
+                184
+            ],
+            [
+                528,
+                190
+            ]
+        ],
+        "scale": [
+            0.56,
+            1.86,
+            0.11
+        ]
+    },
+    "20190704_09h46m11s_6_Color.png": {
+        "image_BG_path": "BG_steak\\6_Color.png",
+        "image_size": [
+            540,
+            960
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\52.jpg",
+            "objects\\pan_steak\\10_ColoBr.png",
+            "objects\\steak\\1.jpg",
+            "objects\\steak\\L1.jpg",
+            "objects\\bottle\\34.png"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak",
+            "bottle"
+        ],
+        "pos_xy": [
+            [
+                557,
+                92
+            ],
+            [
+                214,
+                293
+            ],
+            [
+                259,
+                298
+            ],
+            [
+                552,
+                107
+            ],
+            [
+                798,
+                80
+            ]
+        ],
+        "scale": [
+            0.92,
+            0.66,
+            0.49,
+            0.13,
+            0.27
+        ]
+    },
+    "20190704_09h49m25s_77.png": {
+        "image_BG_path": "BG_steak\\77.jpg",
+        "image_size": [
+            376,
+            676
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\7_Color.png",
+            "objects\\pan_steak\\15_Color.png",
+            "objects\\steak\\13.jpg",
+            "objects\\steak\\10.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                359,
+                44
+            ],
+            [
+                424,
+                190
+            ],
+            [
+                363,
+                58
+            ],
+            [
+                437,
+                158
+            ]
+        ],
+        "scale": [
+            0.39,
+            0.44,
+            0.42,
+            0.16
+        ]
+    },
+    "20190704_09h54m34s_7_Color.png": {
+        "image_BG_path": "BG_steak\\7_Color.png",
+        "image_size": [
+            540,
+            960
+        ],
+        "images_FG_path": [
+            "objects\\steak\\17.jpg",
+            "objects\\bottle\\33.jpg",
+            "objects\\pan_steak\\7_Color.png",
+            "objects\\pan_steak\\2_Color.png",
+            "objects\\steak\\10.jpg"
+        ],
+        "labels": [
+            "steak",
+            "bottle",
+            "pan_steak",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                875,
+                273
+            ],
+            [
+                888,
+                33
+            ],
+            [
+                230,
+                154
+            ],
+            [
+                568,
+                295
+            ],
+            [
+                231,
+                178
+            ]
+        ],
+        "scale": [
+            0.37,
+            0.66,
+            0.6,
+            0.64,
+            0.21
+        ]
+    },
+    "20190704_10h01m57s_86.png": {
+        "image_BG_path": "BG_steak\\86.jpg",
+        "image_size": [
+            381,
+            635
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\20.jpg",
+            "objects\\bottle\\19.jpg",
+            "objects\\pan_steak\\7_Color.png",
+            "objects\\steak\\9.png"
+        ],
+        "labels": [
+            "pan_steak",
+            "bottle",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                149,
+                174
+            ],
+            [
+                46,
+                2
+            ],
+            [
+                433,
+                149
+            ],
+            [
+                439,
+                170
+            ]
+        ],
+        "scale": [
+            0.3,
+            0.25,
+            0.49,
+            0.06
+        ]
+    },
+    "20190704_10h02m21s_87.png": {
+        "image_BG_path": "BG_steak\\87.jpg",
+        "image_size": [
+            476,
+            634
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\6_ColorB.png",
+            "objects\\pan_steak\\2_ColorB.png",
+            "objects\\steak\\L5.jpg",
+            "objects\\steak_cooked\\18.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                518,
+                237
+            ],
+            [
+                219,
+                308
+            ],
+            [
+                492,
+                243
+            ],
+            [
+                191,
+                274
+            ]
+        ],
+        "scale": [
+            0.62,
+            0.57,
+            0.15,
+            0.13
+        ]
+    },
+    "20190704_10h02m54s_IMG_5247.png": {
+        "image_BG_path": "BG_steak\\IMG_5247.JPG",
+        "image_size": [
+            1080,
+            810
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\4.jpg",
+            "objects\\pan_steak\\7.jpg",
+            "objects\\steak\\12.jpg",
+            "objects\\steak_cooked\\9.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                420,
+                274
+            ],
+            [
+                291,
+                649
+            ],
+            [
+                376,
+                651
+            ],
+            [
+                423,
+                326
+            ]
+        ],
+        "scale": [
+            0.88,
+            1.74,
+            0.12,
+            0.1
+        ]
+    },
+    "20190704_10h03m17s_IMG_5251.png": {
+        "image_BG_path": "BG_steak\\IMG_5251.JPG",
+        "image_size": [
+            1080,
+            1440
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\1.jpg",
+            "objects\\pan_steak\\9.jpg",
+            "objects\\steak\\13.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                509,
+                479
+            ],
+            [
+                976,
+                436
+            ],
+            [
+                980,
+                520
+            ]
+        ],
+        "scale": [
+            0.94,
+            1.0,
+            0.88
+        ]
+    },
+    "20190704_10h04m02s_IMG_5256.png": {
+        "image_BG_path": "BG_steak\\IMG_5256.JPG",
+        "image_size": [
+            1080,
+            1440
+        ],
+        "images_FG_path": [
+            "objects\\bottle\\43.jpg",
+            "objects\\bottle\\43.jpg",
+            "objects\\pan_steak\\2_Color.png",
+            "objects\\pan_steak\\12_Color.png",
+            "objects\\steak\\L2.jpg",
+            "objects\\steak_cooked\\4.jpg"
+        ],
+        "labels": [
+            "bottle",
+            "bottle",
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                76,
+                421
+            ],
+            [
+                182,
+                384
+            ],
+            [
+                1001,
+                523
+            ],
+            [
+                433,
+                693
+            ],
+            [
+                519,
+                692
+            ],
+            [
+                919,
+                484
+            ]
+        ],
+        "scale": [
+            0.94,
+            0.94,
+            1.0,
+            1.0,
+            0.48,
+            0.15
+        ]
+    },
+    "20190704_10h17m19s_IMG_5263.png": {
+        "image_BG_path": "BG_steak\\IMG_5263.JPG",
+        "image_size": [
+            1080,
+            1440
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\61.jpg",
+            "objects\\pan_steak\\10_Color.png",
+            "objects\\steak\\2.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                1021,
+                577
+            ],
+            [
+                583,
+                435
+            ],
+            [
+                1011,
+                598
+            ]
+        ],
+        "scale": [
+            0.31,
+            0.58,
+            0.09
+        ]
+    },
+    "20190704_10h19m39s_IMG_5264.png": {
+        "image_BG_path": "BG_steak\\IMG_5264.JPG",
+        "image_size": [
+            1080,
+            1440
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\9_Color.png",
+            "objects\\pan_steak\\1_Color.png",
+            "objects\\steak\\12.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                520,
+                579
+            ],
+            [
+                927,
+                634
+            ],
+            [
+                519,
+                607
+            ]
+        ],
+        "scale": [
+            0.76,
+            0.74,
+            0.13
+        ]
+    },
+    "20190704_10h30m12s_153.png": {
+        "image_BG_path": "BG_steak\\153.jpg",
+        "image_size": [
+            408,
+            1104
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\21.jpg",
+            "objects\\pan_steak\\43.jpg",
+            "objects\\steak\\L9.jpg",
+            "objects\\bottle\\34.png"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "bottle"
+        ],
+        "pos_xy": [
+            [
+                284,
+                234
+            ],
+            [
+                817,
+                263
+            ],
+            [
+                346,
+                249
+            ],
+            [
+                1005,
+                116
+            ]
+        ],
+        "scale": [
+            0.51,
+            0.78,
+            0.1,
+            0.29
+        ]
+    },
+    "20190704_11h56m48s_153.png": {
+        "image_BG_path": "BG_steak\\153.jpg",
+        "image_size": [
+            408,
+            1104
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\4_Color.png",
+            "objects\\pan_steak\\43.jpg",
+            "objects\\steak\\11.jpg",
+            "objects\\bottle\\4.jpg",
+            "objects\\bottle\\10.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "bottle",
+            "bottle"
+        ],
+        "pos_xy": [
+            [
+                824,
+                187
+            ],
+            [
+                393,
+                267
+            ],
+            [
+                774,
+                194
+            ],
+            [
+                108,
+                102
+            ],
+            [
+                1058,
+                126
+            ]
+        ],
+        "scale": [
+            0.61,
+            0.98,
+            1.0,
+            0.7,
+            0.39
+        ]
+    },
+    "20190704_13h16m47s_160.png": {
+        "image_BG_path": "BG_steak\\160.jpg",
+        "image_size": [
+            1018,
+            1792
+        ],
+        "images_FG_path": [
+            "objects\\bottle\\57.jpg",
+            "objects\\pan_steak\\6_Color.png",
+            "objects\\pan_steak\\5_ColorB.png",
+            "objects\\steak\\8.jpg"
+        ],
+        "labels": [
+            "bottle",
+            "pan_steak",
+            "pan_steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                1430,
+                70
+            ],
+            [
+                1047,
+                224
+            ],
+            [
+                738,
+                575
+            ],
+            [
+                637,
+                574
+            ]
+        ],
+        "scale": [
+            0.13,
+            0.72,
+            1.0,
+            0.28
+        ]
+    },
+    "20190704_13h19m21s_5_Color.png": {
+        "image_BG_path": "BG_steak\\5_Color.png",
+        "image_size": [
+            540,
+            960
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\14_ColorB.png",
+            "objects\\pan_steak\\11_Color.png",
+            "objects\\steak_cooked\\7.jpg",
+            "objects\\steak_cooked\\12.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                306,
+                249
+            ],
+            [
+                577,
+                81
+            ],
+            [
+                345,
+                234
+            ],
+            [
+                602,
+                99
+            ]
+        ],
+        "scale": [
+            0.58,
+            0.5,
+            0.09,
+            0.08
+        ]
+    },
+    "20190704_13h25m05s_80.png": {
+        "image_BG_path": "BG_steak\\80.jpg",
+        "image_size": [
+            800,
+            800
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\8_ColorB.png",
+            "objects\\pan_steak\\14_ColorB.png",
+            "objects\\pan_steak\\38.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "pan_steak"
+        ],
+        "pos_xy": [
+            [
+                280,
+                183
+            ],
+            [
+                140,
+                363
+            ],
+            [
+                666,
+                302
+            ]
+        ],
+        "scale": [
+            0.44,
+            0.62,
+            0.38
+        ]
+    },
+    "20190704_13h30m14s_1_Color.png": {
+        "image_BG_path": "BG_steak\\1_Color.png",
+        "image_size": [
+            540,
+            960
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\14_ColorB.png",
+            "objects\\pan_steak\\3_Color.png",
+            "objects\\steak\\L12.jpg",
+            "objects\\steak_cooked\\12.jpg",
+            "objects\\bottle\\31.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak",
+            "bottle"
+        ],
+        "pos_xy": [
+            [
+                236,
+                366
+            ],
+            [
+                690,
+                348
+            ],
+            [
+                613,
+                320
+            ],
+            [
+                291,
+                328
+            ],
+            [
+                129,
+                88
+            ]
+        ],
+        "scale": [
+            0.94,
+            0.82,
+            0.15,
+            0.14,
+            0.18
+        ]
+    },
+    "20190704_14h14m20s_IMG_5258.png": {
+        "image_BG_path": "BG_steak\\IMG_5258.JPG",
+        "image_size": [
+            1080,
+            1440
+        ],
+        "images_FG_path": [
+            "objects\\bottle\\16.jpg",
+            "objects\\pan_steak\\1_ColorB.png",
+            "objects\\pan_steak\\15_Color.png",
+            "objects\\pan_steak\\5_ColorB.png",
+            "objects\\pan_steak\\6_ColorB.png",
+            "objects\\steak\\14.jpg",
+            "objects\\steak\\8.jpg",
+            "objects\\steak\\L7.jpg",
+            "objects\\steak_cooked\\14.jpg",
+            "objects\\steak_cooked\\11.jpg"
+        ],
+        "labels": [
+            "bottle",
+            "pan_steak",
+            "pan_steak",
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "steak",
+            "steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                165,
+                317
+            ],
+            [
+                522,
+                763
+            ],
+            [
+                1338,
+                791
+            ],
+            [
+                998,
+                452
+            ],
+            [
+                562,
+                445
+            ],
+            [
+                183,
+                801
+            ],
+            [
+                531,
+                454
+            ],
+            [
+                220,
+                655
+            ],
+            [
+                931,
+                471
+            ],
+            [
+                518,
+                681
+            ]
+        ],
+        "scale": [
+            1.12,
+            0.96,
+            1.0,
+            0.8,
+            0.78,
+            0.49,
+            0.18,
+            0.14,
+            0.14,
+            0.39
+        ]
+    },
+    "20190704_14h18m46s_IMG_5261.png": {
+        "image_BG_path": "BG_steak\\IMG_5261.JPG",
+        "image_size": [
+            1080,
+            1440
+        ],
+        "images_FG_path": [
+            "objects\\bottle\\6.jpg",
+            "objects\\bottle\\41.jpg",
+            "objects\\pan_steak\\3_ColorB.png",
+            "objects\\pan_steak\\13_ColorB.png"
+        ],
+        "labels": [
+            "bottle",
+            "bottle",
+            "pan_steak",
+            "pan_steak"
+        ],
+        "pos_xy": [
+            [
+                245,
+                260
+            ],
+            [
+                1244,
+                241
+            ],
+            [
+                817,
+                568
+            ],
+            [
+                437,
+                771
+            ]
+        ],
+        "scale": [
+            0.49,
+            0.4,
+            0.78,
+            0.82
+        ]
+    },
+    "20190709_12h12m00s_IMG_5268.png": {
+        "image_BG_path": "BG_steak\\IMG_5268.JPG",
+        "image_size": [
+            1080,
+            1440
+        ],
+        "images_FG_path": [
+            "objects\\plate\\33.png",
+            "objects\\plate\\22.jpg",
+            "objects\\bottle\\60.jpg",
+            "objects\\pan_steak\\1_ColorB.png",
+            "objects\\steak\\L5.jpg",
+            "objects\\steak\\L12.jpg"
+        ],
+        "labels": [
+            "plate",
+            "plate",
+            "bottle",
+            "pan_steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                168,
+                645
+            ],
+            [
+                1256,
+                584
+            ],
+            [
+                185,
+                343
+            ],
+            [
+                898,
+                771
+            ],
+            [
+                1254,
+                581
+            ],
+            [
+                168,
+                643
+            ]
+        ],
+        "scale": [
+            0.34,
+            0.33,
+            0.58,
+            0.94,
+            0.2,
+            0.16
+        ]
+    },
+    "20190709_12h12m58s_1_Color.png": {
+        "image_BG_path": "BG_steak\\1_Color.png",
+        "image_size": [
+            540,
+            960
+        ],
+        "images_FG_path": [
+            "objects\\plate\\35.jpg",
+            "objects\\plate\\6.jpg",
+            "objects\\steak\\12.jpg",
+            "objects\\steak\\18.jpg"
+        ],
+        "labels": [
+            "plate",
+            "plate",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                875,
+                150
+            ],
+            [
+                57,
+                191
+            ],
+            [
+                876,
+                152
+            ],
+            [
+                57,
+                192
+            ]
+        ],
+        "scale": [
+            0.36,
+            0.35,
+            0.13,
+            1.04
+        ]
+    },
+    "20190709_12h26m09s_160.png": {
+        "image_BG_path": "BG_steak\\160.jpg",
+        "image_size": [
+            1018,
+            1792
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\1_ColorB.png",
+            "objects\\pan_steak\\5_Color.png",
+            "objects\\steak_cooked\\3.jpg",
+            "objects\\bottle\\5.jpg",
+            "objects\\plate\\11.jpg",
+            "objects\\plate\\1.jpg",
+            "objects\\plate\\24.jpg",
+            "objects\\steak\\L7.jpg",
+            "objects\\steak\\L2.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "steak",
+            "bottle",
+            "plate",
+            "plate",
+            "plate",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                604,
+                436
+            ],
+            [
+                1099,
+                253
+            ],
+            [
+                604,
+                352
+            ],
+            [
+                203,
+                195
+            ],
+            [
+                235,
+                761
+            ],
+            [
+                1554,
+                474
+            ],
+            [
+                1516,
+                156
+            ],
+            [
+                1520,
+                152
+            ],
+            [
+                1029,
+                256
+            ]
+        ],
+        "scale": [
+            0.94,
+            0.8,
+            0.19,
+            1.0,
+            0.98,
+            0.31,
+            0.58,
+            0.13,
+            0.32
+        ]
+    },
+    "20190709_12h34m13s_5_Color.png": {
+        "image_BG_path": "BG_steak\\5_Color.png",
+        "image_size": [
+            540,
+            960
+        ],
+        "images_FG_path": [
+            "objects\\pan_steak\\3_Color.png",
+            "objects\\pan_steak\\9_Color.png",
+            "objects\\plate\\15.jpg",
+            "objects\\steak_cooked\\11.jpg",
+            "objects\\bottle\\12.jpg",
+            "objects\\plate\\27.jpg",
+            "objects\\steak\\L5.jpg",
+            "objects\\steak\\L1.jpg",
+            "objects\\steak_cooked\\9.jpg"
+        ],
+        "labels": [
+            "pan_steak",
+            "pan_steak",
+            "plate",
+            "steak",
+            "bottle",
+            "plate",
+            "steak",
+            "steak",
+            "steak"
+        ],
+        "pos_xy": [
+            [
+                690,
+                238
+            ],
+            [
+                341,
+                96
+            ],
+            [
+                79,
+                412
+            ],
+            [
+                77,
+                414
+            ],
+            [
+                125,
+                90
+            ],
+            [
+                431,
+                442
+            ],
+            [
+                398,
+                389
+            ],
+            [
+                430,
+                472
+            ],
+            [
+                635,
+                218
+            ]
+        ],
+        "scale": [
+            0.66,
+            0.45,
+            0.39,
+            0.28,
+            0.24,
+            0.31,
+            0.19,
+            0.31,
+            0.09
+        ]
+    }
+}

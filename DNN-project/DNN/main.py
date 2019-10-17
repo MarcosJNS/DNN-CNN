@@ -20,7 +20,7 @@ import csv
 import os
 from scipy.interpolate import interp1d
 import cv2
-import DNNAnalysis
+import DNNAnalysis_Lib
 import sys
 
 sys.path.append("C:\Program Files (x86)\IronPython 2.7\Lib")
@@ -30,12 +30,12 @@ actions=ACTIONS_pan
 N=30
 Steps=2
 
-DNNAnalysis.train_test_teasers_split('pan',N,actions)
+DNNAnalysis_Lib.train_test_teasers_split('pan',N,actions)
 
-DNNAnalysis.pred_norm('pan',N,Steps)
+#DNNAnalysis_Lib.pred_norm('pan',N,Steps)
 
-DNNAnalysis.just_split('pan',N,actions)
+#DNNAnalysis_Lib.just_split('pan',N,actions)
 
-DNNAnalysis.train('pan',N,actions,train_with_predict=False)
+DNNAnalysis_Lib.train('pan',N,actions,train_with_predict=False)
 
-DNNAnalysis.predict('pan',N,actions)
+DNNAnalysis_Lib.predict('pan',N,actions)

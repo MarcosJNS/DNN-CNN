@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 """
-Script utilizado para la ejecucion de la red Mask RCNN sobre un video grabado con la camara RGBD
-intel RealSense D415. Los videos que han sido guardados en un fichero .bag son leidos y se obtiene
-la imagen RGB y Depth de cada frame. 
+This Scrip uses the RCNN to analyze videos captures with a camera RealSense D415. The videos are saved in .bag 
+files then the CNN recognizes the objets to track them. the tracking is saved in a CSV file to feed the other DNN (FNN)
+in order to infer actions.
 
-En este script se realiza un seguimiento de la accion "echar aceite para freir un filete". Para ello
-se detectan primero si las sartenes estan colocadas sobre la vitro, conociendo primero la posicion de la vitro
-mediante una segmentacion de color HSV. Una vez estan las sartenes en la vitro se comprueba el angulo de 
-inclinacion de la botella para saber si se esta echando aceite.
+In this DEMO we are cooking a steak. First we place the pan on the hob. Right after we put the steak with the oil and the pan.
+The functions written here are a first approach to the actions problem, using the masks to fulfill conditions and 
+HSV segmentation inside the functions. 
+
+Nevertheless, the relevant part is using the tracking to infer a wider range of actions in the futur as we expand the project.
+
 """
 
 ############################################################
@@ -24,13 +26,14 @@ import pyrealsense2 as rs
 import matplotlib.pyplot as plt
 import math
 #from samples.asistente  
-import asistente
+import CNN_Lib
 np.set_printoptions(threshold=np.inf)
 # Root directory of the project
-ROOT_DIR = os.path.abspath("../../")
+ROOT_DIR = os.path.abspath("../")
 
 sys.path.append(ROOT_DIR)  # To find local version of the library
-directory = os.path.join("c:\\","Users\marcos\Documents\DNN_model")
+directory = os.path.join(ROOT_DIR,"DNN")
+print(directory)
 sys.path.append(directory)
 # Directory to save logs and trained model
 MODEL_DIR = os.path.join(ROOT_DIR, "logs")
@@ -44,13 +47,13 @@ from mrcnn import visualize
 
 import mrcnn.model as modellib
 
-import DNNAnalysis
+import DNNAnalysis_Lib
 
 #-------------------
 #Load configuration:
 # ------------------
 
-class AsistenteCocoInferenceConfig(asistente.AsistenteConfig):
+class AsistenteCocoInferenceConfig(CNN_Lib.CNN_Config):
     """Configuration for validation on the val dataset.
     Derives from the AsistenteConfig class and overrides some values.
     """
@@ -79,7 +82,7 @@ model = modellib.MaskRCNN(mode="inference",
 # Get path to saved weights
 # Either set a specific path or find last trained weights
 #model_path = os.path.join(ROOT_DIR, "samples/asistente/1Modelos_entrenados/18steak_plateBG/mask_rcnn_asistente_0698.h5")
-model_path = os.path.join(ROOT_DIR, "codigo_python/asistente/1Modelos_entrenados/18steak_plateBG/mask_rcnn_asistente_0698.h5")
+model_path = os.path.join(ROOT_DIR, "CNN/Trained_Models/Steak/mask_rcnn_asistente_0698.h5")
 # Load trained weights
 print("Loading weights from ", model_path)
 model.load_weights(model_path, by_name=True)
@@ -262,10 +265,8 @@ def vertiendo_aceite(mask_bottle, mask_pan, find_steak):
 
 #Parametros:
 #----------
-videos_a_rotar=['Video0.mp4',
-                'IMG_5092.MOV']
 
-video_folder='asistente_dataset/saltear'
+video_folder='CNN_Dataset/Action_Tracking'
 
 if(os.path.exists(os.path.join(video_folder, 'detecciones')) ==False):
     os.mkdir(os.path.join(video_folder, 'detecciones'))
@@ -294,9 +295,9 @@ for video_i in list_videos[1:]:
 #    size_video= (1920, 1080)
     size_video= (1200,720)
     rotate_video=False
-    if(video_i in videos_a_rotar):
-        size_video=(size_video[1], size_video[0])
-        rotate_video=True
+#    if(video_i in videos_a_rotar):
+#        size_video=(size_video[1], size_video[0])
+#        rotate_video=True
     
     if(size_video[0]>1500 or size_video[1]>1500):
         size_video= (int(size_video[0]/2) , int(size_video[1]/2))
@@ -446,7 +447,7 @@ for video_i in list_videos[1:]:
         #Si ha habido alguna deteccion se pinta:
         if(len(r['class_ids'])!=0):
     #        #SE VISUALIZA EL RESULTADO DE DETECCION EN OTRA IMAGEN OBTENIDA Y SE MUESTRA DICHA IMAGEN (SOLO SE VISUALIZAN LOS OBJETOS TRACKEADOS)
-           img2=asistente.display_instances(color_image_BGR, r['rois'], r['masks'], r['class_ids'], class_names, r['scores'], colors=colors) 
+           img2=CNN_Lib.display_instances(color_image_BGR, r['rois'], r['masks'], r['class_ids'], class_names, r['scores'], colors=colors) 
            
         else:
             
@@ -462,7 +463,7 @@ for video_i in list_videos[1:]:
             
             if(class_detections[i]=='pan_steak'):
                  mask_det=(r['masks'][:,:,i]).astype('uint8')*255
-                 DNNAnalysis.centroid_action(mask_det,video_i, 'pan', img2,tracking_vector)
+                 DNNAnalysis_Lib.centroid_action(mask_det,video_i, 'pan', img2,tracking_vector)
             if(class_detections[i]=='pan_steak' and paso==1):
                 print(class_detections)
                 mask_det=(r['masks'][:,:,i]).astype('uint8')*255
