@@ -183,7 +183,10 @@ def train_test_teasers_split(train_object,D_size,ACTIONS):
         for file in files:
            if file.endswith(".csv"):
                 csv_f=os.path.join(foldername,file)
-                f=open(csv_f, 'r')
+                try:
+                        f=open(csv_f, 'r')
+                except FileNotFoundError:
+                            pass
                 tracking_sheet=pd.read_csv(f, header=None, error_bad_lines=False) 
                 f_name=os.path.basename(csv_f)
                 X=tracking_sheet[0]
@@ -313,7 +316,12 @@ def just_split(train_object,D_size,ACTIONS)    :
         for file in files:
            if file.endswith(".csv"):
                 csv_f=os.path.join(foldername,file)
-                f=open(csv_f, 'r')
+                
+                try:
+                        f=open(csv_f, 'r')
+                except FileNotFoundError:
+                            pass
+                        
                 tracking_sheet=pd.read_csv(f, header=None, error_bad_lines=False) 
 
                 try:

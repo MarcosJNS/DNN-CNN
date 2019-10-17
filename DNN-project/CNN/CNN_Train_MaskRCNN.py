@@ -16,12 +16,13 @@ import os
 import sys
 import time
 import numpy as np
+import errno
 
 from imgaug import augmenters as iaa
-
-
+from datetime import datetime
 from CNN_Lib import CNN_Config as asistenteTrainConfig
 from CNN_Lib import CNN_Dataset, save_train_information
+import shutil 
 
 ROOT_DIR = os.path.abspath("../")
 sys.path.append(ROOT_DIR)  # To find local version of the library
@@ -36,6 +37,10 @@ from mrcnn import model as modellib
 
 
 # Import Mask RCNN
+
+# Directory to save logs and model checkpoints, if not provided
+# through the command line argument --logs
+DEFAULT_LOGS_DIR = os.path.join(ROOT_DIR, "CNN\\logs")
 sys.path.append(ROOT_DIR)  # To find local version of the library
 
 
@@ -44,14 +49,14 @@ COCO_MODEL_PATH = os.path.join(ROOT_DIR, "mask_rcnn_coco.h5")
 
 # Directory to save logs and model checkpoints, if not provided
 # through the command line argument --logs
-DEFAULT_LOGS_DIR = os.path.join(ROOT_DIR, "logs")
+
 
 
 logs_dir="logs"
 
 #weights_pretrained='comparacion_blending/1con_blending/mask_rcnn_asistente_0100.h5'  #"coco", "imagenet", "last", "INTRODUCIR path"
 weights_pretrained='last' #si pones last busca automaticamente los ultimos pesos entrenados en la carpeta logs
-
+#weights_pretrained='mask_rcnn_asistente_sinNaranjas.h5'
 
 #------------------------------------
 # Creacion de configuracion y modelo:
@@ -64,8 +69,11 @@ config.display()
 # Create model
 model = modellib.MaskRCNN(mode="training", config=config,
                           model_dir=logs_dir)
-print(logs_dir)
 
+
+weights_pretrained='last' #si pones last busca automaticamente los ultimos pesos entrenados en la carpeta logs
+
+print
 #-------------------------------------------------------------
 # Seleccion de pesos de los que partir para el entrenamiento:
 # ------------------------------------------------------------
