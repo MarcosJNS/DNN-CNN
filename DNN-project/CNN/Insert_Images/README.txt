@@ -44,5 +44,3 @@ This way we can save space and training time.
 
 - segmentations.py:  Script to visualize how the objects are segmented before sticking them to the background. As mentioned before the    				segmentation is done in a white background. in case the objects are not well segmented it would be 				      recommendable to use GIMP or other image editor to segmentate such picture
 
-- regenerate_imgs_With_Blend: funciona igual que "segmentaciones.py" pero aplicando blending entre el contrno del objeto y 
-		    	      el fondo para que el fusionado de las dos imagenes no tenga tanto contraste.
