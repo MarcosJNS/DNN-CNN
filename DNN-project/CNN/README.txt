@@ -39,7 +39,5 @@ in order to detect and categorize objects.
 
 
 - train_asistente_MaskRCNN.py: Script to train the Mask-RCNN model, the model configuration predefined in CNN_Lib is used along with the pretrained model. 
-						 IMPORTANT, to avoid conflict each time we start a trainning the scrit creates a folder inside 'logs' to store 
-						 the data and weights, we have to copy the pretrainned weights we wnt to use.
-						 In this case I have upload one pretrained file in 'logs/log1' that will have to be copied to the file created by the 
-						 script in 'asistente2019...' and then, run the program again.
+						 IMPORTANT, to avoid conflict each time we start a trainning the scrit creates a folder 						 inside 'logs' to store the data and weights, we have to copy the pretrainned weights we                                                  want to use.
+						 In this case I have upload one pretrained file in 'logs/log1' that will have to be                                                      copied to the file created by the script in 'asistente2019...' and then, run the 							 program again.
