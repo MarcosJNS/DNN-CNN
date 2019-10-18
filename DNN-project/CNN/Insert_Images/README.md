@@ -11,10 +11,10 @@ This way we can save space and training time.
 	IMAGES FOLDER
 ---------------------------------------
 
--BG: Background selected images.
+- BG: Background selected images.
 
 
--BG_steak: Backgrounds used specifically for the action tracking purpose.
+- BG_steak: Backgrounds used specifically for the action tracking purpose.
 
 - objects: In this folder it can be found subdirectories with each of the classes we can introduce.The objects must be on top of a white            background, that way the functions can segementate the object from the whole picture.
 	   It is suggested to use"segmentations.py" or  "regenerate_imgs_with_blend.py"  in order to diminize the effect of bad    		   segmentation (sometimes the automatic segmentation is far from perfect).
