@@ -25,17 +25,31 @@ import sys
 
 sys.path.append("C:\Program Files (x86)\IronPython 2.7\Lib")
 
+
+#actions we are going to train and predict
 ACTIONS_pan = ['NaN', 'Place', 'Remove']
 actions=ACTIONS_pan
-N=30
+
+#fram span to infer actions 
+N=30   
+
+#When analyzing a video the frames it advances in each iteration. An iteration is trying to get an action in 30 frames, 
+#the first one will be from 0 to 30, then from 2 to 32 and so forth.
+
 Steps=2
 
+#Normalization of the tracking from 'classified' folder for training and val.
 DNNAnalysis_Lib.train_test_teasers_split('pan',N,actions)
 
+#Normalization of prediction info for prediction or for training with multiple actions (read info in folders)
 #DNNAnalysis_Lib.pred_norm('pan',N,Steps)
 
+#Split of prediction data (already cathegorized)
 #DNNAnalysis_Lib.just_split('pan',N,actions)
 
+#train if predict=True, instead of using Action_train and val, it will use Predict_train and val.
 DNNAnalysis_Lib.train('pan',N,actions,train_with_predict=False)
 
+
+#prediction, creates a new csv file with prediction
 DNNAnalysis_Lib.predict('pan',N,actions)
