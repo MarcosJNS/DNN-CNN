@@ -25,6 +25,6 @@ This is an example of action recognition for a pan with its subfolders.
             files do not  have any previous filters.
 
 
--train_test_split: Normally the one action.csv files stored in 'classified' are processed in one function and also divided into val and train. The 'Predict_train' and 
+- train_test_split: Normally the one action.csv files stored in 'classified' are processed in one function and also divided into val and train. The 'Predict_train' and 
 'Predict_test' are not, so they need to be splitted with another function.  The results are kept in  'train_test_split/splitted', which you have to copy to 'train_ready if you wish to use them for training.       
             
