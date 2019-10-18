@@ -43,6 +43,7 @@ def centroid_action( mask_pan,video_i, object_track, img2,tracking_vector) :
     
     foldername = os.path.join(ROOT_DIR,"DNN\\data_"+object_track+"\\raw_data_"+object_track+"\\")    
     folderdrop = os.path.join(ROOT_DIR,"DNN\\data_"+object_track+"\\classified\\")  
+    
     if not os.path.exists(os.path.dirname(foldername)):
         try:
             os.makedirs(os.path.dirname(foldername))
@@ -297,6 +298,8 @@ def just_split(train_object,D_size,ACTIONS)    :
         
     foldername = os.path.join(ROOT_DIR,"DNN\\data_"+train_object+"\\train_test_split\\")
     folderdrop = os.path.join(ROOT_DIR,"DNN\\data_"+train_object+"\\train_test_split\\splitted\\")   
+    
+    
     if not os.path.exists(os.path.dirname(foldername)):
       try:
         os.makedirs(os.path.dirname(foldername))
@@ -311,78 +314,80 @@ def just_split(train_object,D_size,ACTIONS)    :
         if exc.errno != errno.EEXIST:
             raise
        
-    
+
     for root,dirs,files in os.walk(foldername):
         for file in files:
            if file.endswith(".csv"):
                 csv_f=os.path.join(foldername,file)
-                
+           
                 try:
                         f=open(csv_f, 'r')
-                except FileNotFoundError:
+                        print(f)
+                
+                        
+                        tracking_sheet=pd.read_csv(f, header=None, error_bad_lines=False) 
+        
+                        try:
+                            os.remove(folderdrop + 'Predict_test_'+ train_object +'.csv')
+                        except OSError:
+                            pass
+                        try:
+                            os.remove(folderdrop + 'Predict_train_'+ train_object +'.csv')
+                        except OSError:
                             pass
                         
-                tracking_sheet=pd.read_csv(f, header=None, error_bad_lines=False) 
-
-                try:
-                    os.remove(folderdrop + 'Predict_test_'+ train_object +'.csv')
-                except OSError:
-                    pass
-                try:
-                    os.remove(folderdrop + 'Predict_train_'+ train_object +'.csv')
-                except OSError:
-                    pass
+                        Sheets_det=len(tracking_sheet)
+                        print(Sheets_det)
+                        
+                        test_var=round(0.2*Sheets_det)
+                        
+                        info_row_train=[]
+                        info_row_train.append(Sheets_det-test_var)
+                        info_row_train.append(2*D_size)
+                        for i in range(len(ACTIONS)): 
+                        
+                            info_row_train.append(ACTIONS[i])
+                        
+                        info_row_test=[]
+                        info_row_test.append(test_var)
+                        info_row_test.append(2*D_size)
+                        for i in range(len(ACTIONS)): 
+                        
+                            info_row_test.append(ACTIONS[i])
+                            
                 
-                Sheets_det=len(tracking_sheet)
-                print(Sheets_det)
-                
-                test_var=round(0.2*Sheets_det)
-                
-                info_row_train=[]
-                info_row_train.append(Sheets_det-test_var)
-                info_row_train.append(2*D_size)
-                for i in range(len(ACTIONS)): 
-                
-                    info_row_train.append(ACTIONS[i])
-                
-                info_row_test=[]
-                info_row_test.append(test_var)
-                info_row_test.append(2*D_size)
-                for i in range(len(ACTIONS)): 
-                
-                    info_row_test.append(ACTIONS[i])
-                    
+                        
         
-                
-
-                              
-                test_values=np.random.choice(Sheets_det, size=test_var, replace=False)
-                
-                
-                with open(folderdrop+"Predict_test_"+ train_object +".csv","a", newline='') as Test_F:
-                            tracking_info = csv.writer(Test_F, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-                            tracking_info.writerow(info_row_test)
-                
-               
-                with open(folderdrop+"Predict_train_"+ train_object +".csv","a", newline='') as Train_F:
-                             tracking_info = csv.writer(Train_F, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-                             tracking_info.writerow(info_row_train) 
-                
-                for i in range(Sheets_det):
-                    
-                    main_row=tracking_sheet.values[i,:]
-                    if i in  test_values:
-                
+                                      
+                        test_values=np.random.choice(Sheets_det, size=test_var, replace=False)
+                        
                         
                         with open(folderdrop+"Predict_test_"+ train_object +".csv","a", newline='') as Test_F:
-                            tracking_info = csv.writer(Test_F, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-                            tracking_info.writerow(main_row)
+                                    tracking_info = csv.writer(Test_F, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                                    tracking_info.writerow(info_row_test)
                         
-                    else :
-                
-                         with open(folderdrop+"Predict_train_"+ train_object +".csv","a", newline='') as Train_F:
-                             tracking_info = csv.writer(Train_F, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-                             tracking_info.writerow(main_row)        
+                       
+                        with open(folderdrop+"Predict_train_"+ train_object +".csv","a", newline='') as Train_F:
+                                     tracking_info = csv.writer(Train_F, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                                     tracking_info.writerow(info_row_train) 
+                        
+                        for i in range(Sheets_det):
+                            
+                            main_row=tracking_sheet.values[i,:]
+                            if i in  test_values:
+                        
+                                
+                                with open(folderdrop+"Predict_test_"+ train_object +".csv","a", newline='') as Test_F:
+                                    tracking_info = csv.writer(Test_F, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                                    tracking_info.writerow(main_row)
+                                
+                            else :
+                        
+                                 with open(folderdrop+"Predict_train_"+ train_object +".csv","a", newline='') as Train_F:
+                                     tracking_info = csv.writer(Train_F, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                                     tracking_info.writerow(main_row)      
+                except FileNotFoundError:
+                            pass
 
 def pred_norm(pred_object,D_size,step):
     
@@ -415,43 +420,44 @@ def pred_norm(pred_object,D_size,step):
                 csv_f=os.path.join(foldername,file)
                 try:
                         f=open(csv_f, 'r')
-                except FileNotFoundError:
-                            pass
-                f=open(csv_f, 'r')
-                #f=r'C:\Users\marcos\Documents\DNN\Actions_dataset\NaN_1.csv'
-                tracking_sheet=pd.read_csv(f, header=None) 
-                
-                X=tracking_sheet[0] 
-                Y=tracking_sheet[1]
-                print('Puntos_encontrados',len(tracking_sheet))
-                for i in range(len(tracking_sheet)):
-   
-
-                        while end_of_file == False:
-                            Xs=[]
-                            Ys=[]
-                            Init+=step
-                            End+=step
-#                            Init+=5
-#                            End+=5
-                            Xs.append(X[Init:End])
-                            Ys.append(Y[Init:End])
-                            iter+=1
-                            if (len(tracking_sheet)-End) < 5 :
-                                end_of_file = True
-                           
-                           
-    
-            
-                            row=np.append(Xs,Ys)   
-                           
+             
+                        #f=r'C:\Users\marcos\Documents\DNN\Actions_dataset\NaN_1.csv'
+                        tracking_sheet=pd.read_csv(f, header=None) 
                         
-                            with open(foldername+'predict_'+pred_object+'.csv',"a", newline='') as trackingF:
-                                    tracking_info = csv.writer(trackingF, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-                                    tracking_info.writerow(row)
-                            f.close()        
+                        X=tracking_sheet[0] 
+                        Y=tracking_sheet[1]
+                        print('Points_found',len(tracking_sheet))
+                        for i in range(len(tracking_sheet)):
+           
+        
+                                while end_of_file == False:
+                                    Xs=[]
+                                    Ys=[]
+                                    Init+=step
+                                    End+=step
+        #                            Init+=5
+        #                            End+=5
+                                    Xs.append(X[Init:End])
+                                    Ys.append(Y[Init:End])
+                                    iter+=1
 
-                print('lines',iter)
+                                    if (len(tracking_sheet)-End) < 2 :
+                                        end_of_file = True
+                                   
+       
+                                    row=np.append(Xs,Ys)   
+                                    Init+=step
+                                    End+=step
+                                
+                                    with open(foldername+'predict_'+pred_object+'.csv',"a", newline='') as trackingF:
+                                            tracking_info = csv.writer(trackingF, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                                            tracking_info.writerow(row)
+                                    f.close()        
+
+                except FileNotFoundError:
+                                   pass
+                
+                
     
 
 
