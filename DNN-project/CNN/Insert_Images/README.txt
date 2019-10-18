@@ -1,9 +1,5 @@
-In this folder "Insert Images" there is a script called "generate_images" which allows you to create synthetic images.
+In this folder "Insert_Images" there is a script called "generate_images" which allows you to create synthetic images.
 This will dramatically shorten the time needed for the dataset creation.
-
-En esta carpeta "asistente/InsertarImagenes" se ha desarrollado un programa python "generar_imagenes.py"
-el cual te permite crear imagenes sinteticas ya etiqeutadas mediante el pegado de imagenes de objetos
-sobre imagenes de fondo, de manera que las imagenes quedan ya etiquetadas con las mascara del objeto sobre el fondo.
 
 For this purpose there are different folders containing the background ('BG'9 and several objects.
 
