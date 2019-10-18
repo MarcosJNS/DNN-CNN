@@ -20,10 +20,8 @@ This way we can save space and training time.
 
 -BG_steak: Backgrounds used specifically for the action tracking purpose.
 
-- objects: In this folder it can be found subdirectories with each of the classes we can introduce.The objects must be on top of a white background,
-           that way the functions can segementate the object from the whole picture.
-	   It is suggested to use"segmentaciones.py" or 
- 	   "segmentacionesBlending.py"  in order to diminize the effect of bad segmentation (sometimes the automatic segmentation is far from perfect).
+- objects: In this folder it can be found subdirectories with each of the classes we can introduce.The objects must be on top of a white            background, that way the functions can segementate the object from the whole picture.
+	   It is suggested to use"segmentations.py" or  "regenerate_imgs_with_blend.py"  in order to diminize the effect of bad    		   segmentation (sometimes the automatic segmentation is far from perfect).
 
 - train, train_auto, train_blend, train_steak: Folders with the created images (we can save the images itself if we want to).
 
@@ -42,18 +40,9 @@ This way we can save space and training time.
 
 - purgue_json.py: In case of mismatch between the JSON file and the dataset itself purgues the JSON.
 
-- regenera_imgsConBlend.py: script que regenera un dataset que no habia sido creado aplicando blending al pegado de objetos
-			   para así aplicarlo. 
+- regenera_imgsConBlend.py: This code generates a dataset applying blending between the sticked objects and the background on an image. 
 
-- renombra_imagenes.py: script para renombrar las imagenes de la carpeta fondos por numeros. 
-			IMPORTANTE!!!: no renombrar los fondos despues de haber creado ya imagenes con los nombres anteriores
- 			               de fondos ya que sino esas imagenes ya no valdran.
-
-- segmentaciones.py: script para visualizar como segmenta los objetos el programa antes de pegarlos sobre un fondo. La segmentacion la
-		     realiza aplicando un umbral automatico para eliminar el fondo BLANCO. 
-                     Para visualizar la segmentacion, pega el objeto segmentado sobre un fondo negro. En caso de que la segmentacion 
-		     realizada deje huecos en el objetos (al tener partes blancas) es conveninete "pintar" esas partes con un editor de 
-		     fotos como GIMP a un color mas grisaceo para que segmente el objeto correctamente.
+- segmentations.py:  Script to visualize how the objects are segmented before sticking them to the background. As mentioned before the    				segmentation is done in a white background. in case the objects are not well segmented it would be 				      recommendable to use GIMP or other image editor to segmentate such picture
 
 - regenerate_imgs_With_Blend: funciona igual que "segmentaciones.py" pero aplicando blending entre el contrno del objeto y 
-			     el fondo para que el fusionado de las dos imagenes no tenga tanto contraste.
+		    	      el fondo para que el fusionado de las dos imagenes no tenga tanto contraste.
