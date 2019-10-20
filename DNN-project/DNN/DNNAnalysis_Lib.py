@@ -1,12 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Oct  8 10:50:03 2019
-
-@author: marcos
-"""
-
-
-
 
 from __future__ import absolute_import
 from __future__ import division
@@ -25,15 +16,9 @@ import sys
 sys.path.append("C:\Program Files (x86)\IronPython 2.7\Lib")
 import random
 ROOT_DIR=os.path.abspath("../")
-
-
-## Data sets
 BATCH_SIZE = 10
-#TRAINING = "Action_training.csv"
-#TEST = "Action_test.csv"
 ACTIONS_pan = ['NaN', 'Place', 'Remove']
-#model_dir='model_info'
-#D_size=50
+
 
 
 
@@ -62,8 +47,7 @@ def centroid_action( mask_pan,video_i, object_track, img2,tracking_vector) :
     contours, _ = cv2.findContours(mask_pan ,cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
     contour_sizes = [(cv2.contourArea(contour), contour) for contour in contours]
     cnts = max(contour_sizes, key=lambda x: x[0])[1]
-    
-        # compute the center of the contour
+   
     M = cv2.moments(cnts)
     
     if M["m00"]>0:
@@ -143,11 +127,6 @@ def normalize_vec(vector,D_size):
                             add_list[pos+i]=prev
                             prev=prev_i
                            
-#                    if count==4:
-#                            print(add_list)
-#                          
-#                            print(GAP) 
-#                            print(pos)
              
                 return add_list            
    if len(vector) == D_size:
@@ -197,12 +176,7 @@ def train_test_teasers_split(train_object,D_size,ACTIONS):
                 X=normalize_vec(X,D_size)
                 Y=normalize_vec(Y,D_size)
                 
-#                print(len(X))
-#                print(len(Y))
-    #            z=np.polyfit(X,Y,6)
-    #            p = np.poly1d(z)
-    #            xp = np.linspace(min(X), max(X), 100)
-    #            yp = p(xp)
+
                 ok=False
                 if f_name.find('NaN')  !=-1:
                     action=0
@@ -216,8 +190,6 @@ def train_test_teasers_split(train_object,D_size,ACTIONS):
                 if f_name.find('Saltear') !=-1:
                     action=3   
                     ok=True
-    #                
-    #            row=np.sqrt(xp**2+yp**2)
                 row=np.append(X,Y)   
                 
                 row=np.append(row,action)
@@ -259,9 +231,6 @@ def train_test_teasers_split(train_object,D_size,ACTIONS):
         info_row_test.append(ACTIONS[i])
         
         
-#    directory_main=os.path.join("c:\\","Users\marcos\Documents\Asistente\codigo_python\Asistente\Action_tracking")
-#    csv_main=os.path.join(directory_main,"tracking_sheet.csv")
-#    f_track=open(csv_main, 'r')
     
     f_track=open(foldername+"tracking_sheet_"+ train_object +".csv", 'r')
     tracking_sheet=pd.read_csv(f_track, header=None, error_bad_lines=False) 
@@ -354,10 +323,7 @@ def just_split(train_object,D_size,ACTIONS)    :
                         for i in range(len(ACTIONS)): 
                         
                             info_row_test.append(ACTIONS[i])
-                            
-                
-                        
-        
+                     
                                       
                         test_values=np.random.choice(Sheets_det, size=test_var, replace=False)
                         
@@ -421,7 +387,6 @@ def pred_norm(pred_object,D_size,step):
                 try:
                         f=open(csv_f, 'r')
              
-                        #f=r'C:\Users\marcos\Documents\DNN\Actions_dataset\NaN_1.csv'
                         tracking_sheet=pd.read_csv(f, header=None) 
                         
                         X=tracking_sheet[0] 
@@ -435,8 +400,7 @@ def pred_norm(pred_object,D_size,step):
                                     Ys=[]
                                     Init+=step
                                     End+=step
-        #                            Init+=5
-        #                            End+=5
+
                                     Xs.append(X[Init:End])
                                     Ys.append(Y[Init:End])
                                     iter+=1
@@ -493,18 +457,8 @@ def train(train_object,D_size,ACTIONS,train_with_predict):
   if train_with_predict==True: 
       TRAINING=os.path.join(ROOT_DIR,"DNN\\data_"+train_object+"\\train_ready\\Predict_train_"+ train_object +".csv")
       TEST=os.path.join(ROOT_DIR,"DNN\\data_"+train_object+"\\train_ready\\Predict_test_"+ train_object +".csv")    
-   #oad datasets.
 
-# 
-#  training_set = tf.contrib.learn.datasets.base.load_csv_with_header(
-#      filename=TRAINING,
-#      target_dtype=np.int,
-#      features_dtype=np.float32)
-#
-#  test_set = tf.contrib.learn.datasets.base.load_csv_with_header(
-#      filename=TEST,
-#      target_dtype=np.int,
-#      features_dtype=np.float32)
+
   
   COLUMN_NAMES=[]
   for i in range(D_size*2+1):
@@ -524,14 +478,10 @@ def train(train_object,D_size,ACTIONS,train_with_predict):
   test = pd.read_csv(TEST, names=COLUMN_NAMES, header=0)
   test_x, test_y = test, test.pop(y_name)
 
-  
-  
-# Specify that all features have real-value data
-#  feature_columns = [tf.contrib.layers.real_valued_column("", dimension=101)]
+
   feature_columns = [tf.feature_column.numeric_column(key=key)
                    for key in train_x.keys()]
-  #model_dir='model_info'
-  # Build 3 layer DNN
+
   
   
   classifier =tf.estimator.DNNClassifier(feature_columns=feature_columns,
@@ -540,33 +490,10 @@ def train(train_object,D_size,ACTIONS,train_with_predict):
   
   
   
-#  # Define the training inputs
-#  def get_train_inputs():
-#    x = tf.constant(training_set.data)
-#    print(x)
-#    y = tf.constant(training_set.target)
-#    print(y)
-#    return x, y
-#
-#  # Fit model.
-#  
-#
-#  #classifier.fit(input_fn=get_train_inputs, steps=2000)
-#
-#  # Define the test inputs
-#  def get_test_inputs():
-#    x = tf.constant(test_set.data)
-#    y = tf.constant(test_set.target)
-#
-#    return x, y
-
-  print('aquiiii',train_x,train_y)    
   classifier.train(
     input_fn=lambda: train_input_fn(train_x.astype(int), train_y.astype(int), batch_size=BATCH_SIZE),
     steps=1000)
   
-
-  # Evaluate accuracy.
   
   
   
@@ -584,8 +511,6 @@ def train(train_object,D_size,ACTIONS,train_with_predict):
 
 
  
-
-
 
 
 
@@ -616,18 +541,14 @@ def predict(pred_object,D_size,ACTIONS):
       else :
          COLUMN_NAMES.append('action')
          
-    y_name = str(D_size*2)  
-    
-#    TRAINING = "Action_training.csv"     
+    y_name = str(D_size*2)   
     
 
 
     train = pd.read_csv(TRAINING, names=COLUMN_NAMES, header=0)
     print(train)
     train_x, train_y = train, train.pop(y_name)     
- 
-    # Specify that all features have real-value data
-    #  feature_columns = [tf.contrib.layers.real_valued_column("", dimension=101)]
+
     feature_columns = [tf.feature_column.numeric_column(key=key)
                        for key in train_x.keys()]  
       
@@ -636,9 +557,7 @@ def predict(pred_object,D_size,ACTIONS):
                                                   n_classes=len(ACTIONS))
       
       
-    
-      # Build 3 layer DNN
-      
+  
       
     f_track=open(foldername, 'r')
     predict_sheet=pd.read_csv(f_track, header=None)         
