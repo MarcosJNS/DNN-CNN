@@ -32,7 +32,7 @@ def centroid_action( mask_pan,video_i, object_track, img2,tracking_vector) :
     if not os.path.exists(os.path.dirname(foldername)):
         try:
             os.makedirs(os.path.dirname(foldername))
-        except OSError as exc: # Guard against race condition
+        except OSError as exc: 
             if exc.errno != errno.EEXIST:
                 raise
                 
@@ -40,7 +40,7 @@ def centroid_action( mask_pan,video_i, object_track, img2,tracking_vector) :
     if not os.path.exists(os.path.dirname(folderdrop)):
         try:
             os.makedirs(os.path.dirname(folderdrop))
-        except OSError as exc: # Guard against race condition
+        except OSError as exc: 
             if exc.errno != errno.EEXIST:
                 raise
   
@@ -57,8 +57,7 @@ def centroid_action( mask_pan,video_i, object_track, img2,tracking_vector) :
         xS1 = c0X
         yS1 = c0Y
         coord=xS1,yS1
-        
-        # draw the contour and center of the shape on the image
+       
         cv2.drawContours(img2, [cnts], -1, (0, 255, 0), 2)
         cv2.circle(img2, (c0X, c0Y), 7, (255, 255, 255), -1)
         cv2.putText(img2, "center", (c0X - 20, c0Y - 20),
@@ -141,14 +140,14 @@ def train_test_teasers_split(train_object,D_size,ACTIONS):
     if not os.path.exists(os.path.dirname(foldername)):
       try:
         os.makedirs(os.path.dirname(foldername))
-      except OSError as exc: # Guard against race condition
+      except OSError as exc: 
         if exc.errno != errno.EEXIST:
             raise
     
     if not os.path.exists(os.path.dirname(folderdrop)):
       try:
         os.makedirs(os.path.dirname(folderdrop))
-      except OSError as exc: # Guard against race condition
+      except OSError as exc: 
         if exc.errno != errno.EEXIST:
             raise
     
@@ -272,14 +271,14 @@ def just_split(train_object,D_size,ACTIONS)    :
     if not os.path.exists(os.path.dirname(foldername)):
       try:
         os.makedirs(os.path.dirname(foldername))
-      except OSError as exc: # Guard against race condition
+      except OSError as exc: 
         if exc.errno != errno.EEXIST:
             raise
     
     if not os.path.exists(os.path.dirname(folderdrop)):
       try:
         os.makedirs(os.path.dirname(folderdrop))
-      except OSError as exc: # Guard against race condition
+      except OSError as exc: n
         if exc.errno != errno.EEXIST:
             raise
        
@@ -291,8 +290,7 @@ def just_split(train_object,D_size,ACTIONS)    :
            
                 try:
                         f=open(csv_f, 'r')
-                        print(f)
-                
+                  
                         
                         tracking_sheet=pd.read_csv(f, header=None, error_bad_lines=False) 
         
@@ -306,7 +304,7 @@ def just_split(train_object,D_size,ACTIONS)    :
                             pass
                         
                         Sheets_det=len(tracking_sheet)
-                        print(Sheets_det)
+                        
                         
                         test_var=round(0.2*Sheets_det)
                         
@@ -362,7 +360,7 @@ def pred_norm(pred_object,D_size,step):
     if not os.path.exists(os.path.dirname(foldername)):
       try:
         os.makedirs(os.path.dirname(foldername))
-      except OSError as exc: # Guard against race condition
+      except OSError as exc: 
         if exc.errno != errno.EEXIST:
             raise
     
@@ -435,7 +433,7 @@ def train(train_object,D_size,ACTIONS,train_with_predict):
   if not os.path.exists(os.path.dirname(foldername)):
       try:
         os.makedirs(os.path.dirname(foldername))
-      except OSError as exc: # Guard against race condition
+      except OSError as exc: 
         if exc.errno != errno.EEXIST:
             raise
     
@@ -471,7 +469,6 @@ def train(train_object,D_size,ACTIONS,train_with_predict):
   y_name = str(D_size*2)     
   
   train = pd.read_csv(TRAINING, names=COLUMN_NAMES, header=0)
-  print(train)
   train_x, train_y = train, train.pop(y_name)
 
     
@@ -546,7 +543,6 @@ def predict(pred_object,D_size,ACTIONS):
 
 
     train = pd.read_csv(TRAINING, names=COLUMN_NAMES, header=0)
-    print(train)
     train_x, train_y = train, train.pop(y_name)     
 
     feature_columns = [tf.feature_column.numeric_column(key=key)
