@@ -35,14 +35,14 @@ Steps=2
 #DNNAnalysis_Lib.train_test_teasers_split('pan',N,actions)
 
 #Normalization of prediction info for prediction or for training with multiple actions (read info in folders).
-DNNAnalysis_Lib.pred_norm('pan',N,Steps)
+#DNNAnalysis_Lib.pred_norm('pan',N,Steps)
 
 #Split of prediction data (already cathegorized).
-#DNNAnalysis_Lib.just_split('pan',N,actions)
+DNNAnalysis_Lib.just_split('pan',N,actions)
 
 #Train, if predict=True, instead of using Action_train and val, it will use Predict_train and val.
-#DNNAnalysis_Lib.train('pan',N,actions,train_with_predict=True)
+DNNAnalysis_Lib.train('pan',N,actions,train_with_predict=False)
 
 
 #Prediction, creates a new csv file with prediction.
-DNNAnalysis_Lib.predict('pan',N,actions)
+#DNNAnalysis_Lib.predict('pan',N,actions)

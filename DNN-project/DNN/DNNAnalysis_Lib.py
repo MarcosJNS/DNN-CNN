@@ -27,7 +27,7 @@ def centroid_action( mask_pan,video_i, object_track, img2,tracking_vector) :
 
     
     foldername = os.path.join(ROOT_DIR,"DNN\\data_"+object_track+"\\raw_data_"+object_track+"\\")    
-    folderdrop = os.path.join(ROOT_DIR,"DNN\\data_"+object_track+"\\classified\\")  
+
     
     if not os.path.exists(os.path.dirname(foldername)):
         try:
@@ -66,7 +66,7 @@ def centroid_action( mask_pan,video_i, object_track, img2,tracking_vector) :
         print(object_track,':  ',tracking_vector)
         
 
-        with open(folderdrop + '\\' + object_track + "tracking" + str(video_i) + ".csv","a", newline='') as trackingF:
+        with open(foldername + '\\' + object_track + "tracking" + str(video_i) + ".csv","a", newline='') as trackingF:
             tracking_info = csv.writer(trackingF, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             tracking_info.writerow(coord)
 
@@ -396,8 +396,8 @@ def pred_norm(pred_object,D_size,step):
                                 while end_of_file == False:
                                     Xs=[]
                                     Ys=[]
-                                    Init+=step
-                                    End+=step
+
+
 
                                     Xs.append(X[Init:End])
                                     Ys.append(Y[Init:End])
