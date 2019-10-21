@@ -266,7 +266,7 @@ def vertiendo_aceite(mask_bottle, mask_pan, find_steak):
 #Parametros:
 #----------
 
-video_folder='CNN_Dataset/Action_Tracking'
+video_folder='CNN_Dataset/Saute_Recog'
 
 if(os.path.exists(os.path.join(video_folder, 'detecciones')) ==False):
     os.mkdir(os.path.join(video_folder, 'detecciones'))
