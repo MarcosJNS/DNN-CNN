@@ -278,7 +278,7 @@ def just_split(train_object,D_size,ACTIONS)    :
     if not os.path.exists(os.path.dirname(folderdrop)):
       try:
         os.makedirs(os.path.dirname(folderdrop))
-      except OSError as exc: n
+      except OSError as exc: 
         if exc.errno != errno.EEXIST:
             raise
        
