@@ -110,7 +110,11 @@ def centroid( mask_pan) :
     #if sarten_colocada(vitro_mask, mask_pan) == True:
     if count_displacement == 10 :
 
-        contours, _ = cv2.findContours(mask_pan ,cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+        try:
+                    contours, _ = cv2.findContours(mask_det ,cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+        except ValueError:                    
+                    _,contours, _ = cv2.findContours(mask_det ,cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+                    
         contour_sizes = [(cv2.contourArea(contour), contour) for contour in contours]
         cnts = max(contour_sizes, key=lambda x: x[0])[1]
         
@@ -140,8 +144,11 @@ def tracking (mask_pan):
     global tracking_vector,m
     
    # if sarten_colocada(vitro_mask, mask_pan) == True:
+    try:
+                    contours, _ = cv2.findContours(mask_det ,cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+    except ValueError:                    
+                    _,contours, _ = cv2.findContours(mask_det ,cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
 
-    _, contours, _ = cv2.findContours(mask_pan ,cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
     contour_sizes = [(cv2.contourArea(contour), contour) for contour in contours]
     cnts = max(contour_sizes, key=lambda x: x[0])[1]
     M = cv2.moments(cnts)
@@ -170,12 +177,13 @@ def saltear( mask_det):
 
     displacementX=0
     displacementY=0
-    contours, _ = cv2.findContours(mask_det ,cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
-    contour_sizes = [(cv2.contourArea(contour), contour) for contour in contours]
 
     if xS1 != 0 or yS1 != 0:    
-        
-        _, contours, _ = cv2.findContours(mask_det ,cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+        try:
+                    contours, _ = cv2.findContours(mask_det ,cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+        except ValueError:
+                    
+                    _,contours, _ = cv2.findContours(mask_det ,cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
         contour_sizes = [(cv2.contourArea(contour), contour) for contour in contours]
         
         cnts = max(contour_sizes, key=lambda x: x[0])[1]
@@ -422,14 +430,16 @@ for video_i in list_videos[1:]:
             vitro_mask = cv2.morphologyEx(vitro_mask, cv2.MORPH_OPEN, kernel, iterations = 3)
             
             #Nos quedamos unicamente con el contorno mas grande:
-            contours, _ = cv2.findContours(vitro_mask ,cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+            try:
+                    contours, _ = cv2.findContours(vitro_mask ,cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+            except ValueError:
+                    _,contours, _ = cv2.findContours(vitro_mask ,cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+                    
             contour_sizes = [(cv2.contourArea(contour), contour) for contour in contours]
             biggest_contour = max(contour_sizes, key=lambda x: x[0])[1]
             vitro_mask = np.zeros(vitro_mask.shape, dtype="uint8")
             cv2.drawContours(vitro_mask, [biggest_contour], -1, (255), thickness =-1)
-#            cv2.imwrite('vitro_mask.png', vitro_mask)
-#            cv2.imwrite('frame_HSV.png', frame_HSV)
-#            cv2.imwrite('BG_mean.png', BG_mean)
+
         
         #SE PROCEDE A LA DETECCION SOBRE LA IMAGEN ESCOGIDA
         t1=time.time()
@@ -560,15 +570,13 @@ for video_i in list_videos[1:]:
         cv2.putText(img2,Txt7,(10,200+offset),cv2.FONT_HERSHEY_COMPLEX, 1, (f, 255, f), 2)
        
            
-        
-        #SE GUARDA EL FRAME ACTUAL EN EL VIDEO :
+
         if(guardar_video):
             size = img2.shape[1], img2.shape[0]
             
             if size[0] != size_video[0] or size[1] != size_video[1]:
                 img2 = cv2.resize(img2, size_video, interpolation=cv2.INTER_LANCZOS4)
-                
-            #juntamos la imagen RGB de deteccion y la de profundidad:
+
             depth_medianFiltered_RGB=cv2.cvtColor(depth_medianFiltered, cv2.COLOR_GRAY2BGR)
             img_RGBD=np.hstack((img2, depth_medianFiltered_RGB))
             cv_writer.write(img_RGBD)
@@ -577,7 +585,7 @@ for video_i in list_videos[1:]:
         
         t_fin=time.time()
         
-        #SE SACA POR PANTALLA EL TIEMPO QUE LE HA COSTADO LA DETECCION, Y EL TIEMPO DE DETECCION+VISUALIZACION:
+
         if(n_frame==27):
              pass
         print('\nFrame: ',n_frame)
@@ -588,11 +596,10 @@ for video_i in list_videos[1:]:
         if(playback.current_status() == rs.playback_status.stopped):
              print('Final del video')
              break
-        
-        #SI SE PRETA esc O space SE SALE DEL BUCLE:
+
         key= cv2.waitKey(1)
         
-        if key == ord(' ') or key == 27: #Pretar 'espacio' para pasar al siguiente video
+        if key == ord(' ') or key == 27: 
            
             while(playback.current_status() != rs.playback_status.stopped):
                  frames = pipeline.try_wait_for_frames()
@@ -604,11 +611,11 @@ for video_i in list_videos[1:]:
         cv_writer.release()
 
     cv2.destroyAllWindows()
-#    pipeline.stop()
+
     if(n_frame == 0):
         raise NameError('No se ha encontrado el video')
         
-    if( key == 27): #Si se preta escape no sigue con el siguiente video
+    if( key == 27): 
         break
 
           

@@ -186,7 +186,7 @@ def train_test_teasers_split(train_object,D_size,ACTIONS):
                 if f_name.find('Remove') !=-1:
                     action=2
                     ok=True
-                if f_name.find('Saltear') !=-1:
+                if f_name.find('Saute') !=-1:
                     action=3   
                     ok=True
                 row=np.append(X,Y)   
