@@ -320,6 +320,7 @@ for video_i in list_videos[1:]:
     cv2.resizeWindow('RGBD', 1200,360)  
     
     n_frame=0
+    frame_p_detected=0
     key=None
     
     #Inicializamos los objetos necesarios de la libreria pyrealsense para poder leer los videos de profundidad:
@@ -474,6 +475,8 @@ for video_i in list_videos[1:]:
             if(class_detections[i]=='pan_steak'):
                  mask_det=(r['masks'][:,:,i]).astype('uint8')*255
                  DNNAnalysis_Lib.centroid_action(mask_det,video_i, 'pan', img2,tracking_vector)
+                 frame_p_detected+=1
+                 print('frame pan detected :',frame_p_detected )
             if(class_detections[i]=='pan_steak' and paso==1):
                 print(class_detections)
                 mask_det=(r['masks'][:,:,i]).astype('uint8')*255

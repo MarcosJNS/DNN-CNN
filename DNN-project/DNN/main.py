@@ -38,10 +38,10 @@ Steps=2
 #DNNAnalysis_Lib.pred_norm('pan',N,Steps)
 
 #Split of prediction data (already cathegorized).
-DNNAnalysis_Lib.just_split('pan',N,actions)
+#DNNAnalysis_Lib.just_split('pan',N,actions)
 
 #Train, if predict=True, instead of using Action_train and val, it will use Predict_train and val.
-DNNAnalysis_Lib.train('pan',N,actions,train_with_predict=False)
+DNNAnalysis_Lib.train('pan',N,actions,train_with_predict=True)
 
 
 #Prediction, creates a new csv file with prediction.

@@ -27,7 +27,7 @@ def centroid_action( mask_pan,video_i, object_track, img2,tracking_vector) :
 
     
     foldername = os.path.join(ROOT_DIR,"DNN\\data_"+object_track+"\\raw_data_"+object_track+"\\")    
-
+    folderdrop = os.path.join(ROOT_DIR,"DNN\\data_"+object_track+"\\classified\\")  
     
     if not os.path.exists(os.path.dirname(foldername)):
         try:
@@ -57,7 +57,6 @@ def centroid_action( mask_pan,video_i, object_track, img2,tracking_vector) :
         xS1 = c0X
         yS1 = c0Y
         coord=xS1,yS1
-       
         cv2.drawContours(img2, [cnts], -1, (0, 255, 0), 2)
         cv2.circle(img2, (c0X, c0Y), 7, (255, 255, 255), -1)
         cv2.putText(img2, "center", (c0X - 20, c0Y - 20),
@@ -364,10 +363,8 @@ def pred_norm(pred_object,D_size,step):
         if exc.errno != errno.EEXIST:
             raise
     
-    try:
-        os.remove(foldername+'predict_'+pred_object+'.csv')
-    except OSError:
-        pass
+    os.remove(foldername+'predict_'+pred_object+'.csv')
+
 
     for root,dirs,files in os.walk(foldername):
  
@@ -482,14 +479,14 @@ def train(train_object,D_size,ACTIONS,train_with_predict):
   
   
   classifier =tf.estimator.DNNClassifier(feature_columns=feature_columns,
-                                              hidden_units=[101,202,202,404,404,202,202,101],model_dir=model_dir,
+                                              hidden_units=[61,122,244,488,976,976,488,244,122,61],model_dir=model_dir,
                                               n_classes=len(ACTIONS))
   
   
   
   classifier.train(
     input_fn=lambda: train_input_fn(train_x.astype(int), train_y.astype(int), batch_size=BATCH_SIZE),
-    steps=1000)
+    steps=10000)
   
   
   
