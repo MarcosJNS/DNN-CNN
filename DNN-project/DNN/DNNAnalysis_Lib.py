@@ -62,7 +62,7 @@ def centroid_action( mask_pan,video_i, object_track, img2,tracking_vector) :
         cv2.putText(img2, "center", (c0X - 20, c0Y - 20),
         cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
         tracking_vector.append(coord)
-        print(object_track,':  ',tracking_vector)
+        
         
 
         with open(foldername + '\\' + object_track + "tracking" + str(video_i) + ".csv","a", newline='') as trackingF:
@@ -131,7 +131,145 @@ def normalize_vec(vector,D_size):
        return vector
 
 
-def train_test_teasers_split(train_object,D_size,ACTIONS):
+#def train_test_teasers_split(train_object,D_size,ACTIONS):
+#    
+#    
+#    foldername = os.path.join(ROOT_DIR,"DNN\\data_"+train_object+"\\classified\\")
+#    folderdrop = os.path.join(ROOT_DIR,"DNN\\data_"+train_object+"\\train_ready\\")    
+#    if not os.path.exists(os.path.dirname(foldername)):
+#      try:
+#        os.makedirs(os.path.dirname(foldername))
+#      except OSError as exc: 
+#        if exc.errno != errno.EEXIST:
+#            raise
+#    
+#    if not os.path.exists(os.path.dirname(folderdrop)):
+#      try:
+#        os.makedirs(os.path.dirname(folderdrop))
+#      except OSError as exc: 
+#        if exc.errno != errno.EEXIST:
+#            raise
+#    
+#    Sheets_det=0
+#    
+#    try:
+#        os.remove(foldername+"tracking_sheet_"+ train_object +".csv")
+#    except OSError:
+#        pass
+#    for root,dirs,files in os.walk(foldername):
+#        
+#        for file in files:
+#           if file.endswith(".csv"):
+#                csv_f=os.path.join(foldername,file)
+#                try:
+#                        f=open(csv_f, 'r')
+#                except FileNotFoundError:
+#                            pass
+#                tracking_sheet=pd.read_csv(f, header=None, error_bad_lines=False) 
+#                f_name=os.path.basename(csv_f)
+#                X=tracking_sheet[0]
+#                Y=tracking_sheet[1]
+#                
+#                
+#                X=normalize_vec(X,D_size)
+#                Y=normalize_vec(Y,D_size)
+#                
+#
+#                ok=False
+#                if f_name.find('NaN')  !=-1:
+#                    action=0
+#                    ok=True
+#                if f_name.find('Place')  !=-1:
+#                    action=1 
+#                    ok=True
+#                if f_name.find('Remove') !=-1:
+#                    action=2
+#                    ok=True
+#                if f_name.find('Saute') !=-1:
+#                    action=3   
+#                    ok=True
+#                if f_name.find('Romove_Cover') !=-1:
+#                    action=1   
+#                    ok=True
+#                if f_name.find('Stir') !=-1:
+#                    action=2   
+#                    ok=True
+#                   
+#                row=np.append(X,Y)   
+#                
+#                row=np.append(row,action)
+#                if ok==True:
+#                    Sheets_det+=1
+#                    with open(foldername+"tracking_sheet_"+ train_object +".csv","a", newline='') as trackingF:
+#                                tracking_info = csv.writer(trackingF, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+#                                tracking_info.writerow(row)
+#    
+#                f.close()
+#                
+#    
+#
+#
+#
+#    try:
+#        os.remove(folderdrop + 'Action_test_'+ train_object +'.csv')
+#    except OSError:
+#        pass
+#    try:
+#        os.remove(folderdrop + 'Action_train_'+ train_object +'.csv')
+#    except OSError:
+#        pass
+#    
+#    test_var=round(0.2*Sheets_det)
+#    
+#    info_row_train=[]
+#    info_row_train.append(Sheets_det-test_var)
+#    info_row_train.append(2*D_size)
+#    for i in range(len(ACTIONS)): 
+#    
+#        info_row_train.append(ACTIONS[i])
+#    
+#    info_row_test=[]
+#    info_row_test.append(test_var)
+#    info_row_test.append(2*D_size)
+#    for i in range(len(ACTIONS)): 
+#    
+#        info_row_test.append(ACTIONS[i])
+#        
+#        
+#    
+#    f_track=open(foldername+"tracking_sheet_"+ train_object +".csv", 'r')
+#    tracking_sheet=pd.read_csv(f_track, header=None, error_bad_lines=False) 
+#                  
+#    test_values=np.random.choice(Sheets_det, size=test_var, replace=False)
+#    
+#    
+#    with open(folderdrop+"Action_test_"+ train_object +".csv","a", newline='') as Test_F:
+#                tracking_info = csv.writer(Test_F, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+#                tracking_info.writerow(info_row_test)
+#    
+#   
+#    with open(folderdrop+"Action_train_"+ train_object +".csv","a", newline='') as Train_F:
+#                 tracking_info = csv.writer(Train_F, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+#                 tracking_info.writerow(info_row_train) 
+#    
+#    for i in range(Sheets_det):
+#        
+#        main_row=tracking_sheet.values[i,:]
+#        if i in  test_values:
+#    
+#            
+#            with open(folderdrop+"Action_test_"+ train_object +".csv","a", newline='') as Test_F:
+#                tracking_info = csv.writer(Test_F, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+#                tracking_info.writerow(main_row)
+#            
+#        else :
+#    
+#             with open(folderdrop+"Action_train_"+ train_object +".csv","a", newline='') as Train_F:
+#                 tracking_info = csv.writer(Train_F, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+#                 tracking_info.writerow(main_row)                       
+
+
+def train_test_teasers_split(train_object,D_size,ACTIONS,step):
     
     
     foldername = os.path.join(ROOT_DIR,"DNN\\data_"+train_object+"\\classified\\")
@@ -156,47 +294,81 @@ def train_test_teasers_split(train_object,D_size,ACTIONS):
         os.remove(foldername+"tracking_sheet_"+ train_object +".csv")
     except OSError:
         pass
-    for root,dirs,files in os.walk(foldername):
-        
-        for file in files:
+        for root,dirs,files in os.walk(foldername):
+ 
+         for file in files:
+            
            if file.endswith(".csv"):
+                
+           
+                
+                row=[]               
+                Init=0
+                End=D_size
+                end_of_file = False
+                iter=0
+                
                 csv_f=os.path.join(foldername,file)
                 try:
                         f=open(csv_f, 'r')
-                except FileNotFoundError:
-                            pass
-                tracking_sheet=pd.read_csv(f, header=None, error_bad_lines=False) 
-                f_name=os.path.basename(csv_f)
-                X=tracking_sheet[0]
-                Y=tracking_sheet[1]
-                
-                
-                X=normalize_vec(X,D_size)
-                Y=normalize_vec(Y,D_size)
-                
+             
+                        tracking_sheet=pd.read_csv(f, header=None) 
+                        
+                        X=tracking_sheet[0] 
+                        Y=tracking_sheet[1]
+                        print('Points found : ',len(tracking_sheet))
 
-                ok=False
-                if f_name.find('NaN')  !=-1:
-                    action=0
-                    ok=True
-                if f_name.find('Place')  !=-1:
-                    action=1 
-                    ok=True
-                if f_name.find('Remove') !=-1:
-                    action=2
-                    ok=True
-                if f_name.find('Saute') !=-1:
-                    action=3   
-                    ok=True
-                row=np.append(X,Y)   
-                
-                row=np.append(row,action)
-                if ok==True:
-                    Sheets_det+=1
-                    with open(foldername+"tracking_sheet_"+ train_object +".csv","a", newline='') as trackingF:
-                                tracking_info = csv.writer(trackingF, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-                                tracking_info.writerow(row)
-    
+                        f_name=os.path.basename(csv_f)
+                        for i in range(len(tracking_sheet)):
+           
+        
+                                while end_of_file == False:
+                                    Xs=[]
+                                    Ys=[]
+
+
+
+                                    Xs.append(X[Init:End])
+                                    Ys.append(Y[Init:End])
+                                    iter+=1
+
+                                    if (len(tracking_sheet)-End) < 2 :
+                                        end_of_file = True
+                                   
+                                    
+                                    row=np.append(Xs,Ys)   
+                                    Init+=step
+                                    End+=step
+                                    ok=False
+                                    if f_name.find('NaN')  !=-1:
+                                        action=0
+                                        ok=True
+                                    if f_name.find('Place')  !=-1:
+                                        action=1 
+                                        ok=True
+                                    if f_name.find('Remove') !=-1:
+                                        action=2
+                                        ok=True
+                                    if f_name.find('Saute') !=-1:
+                                        action=3   
+                                        ok=True
+                                    if f_name.find('Stir') !=-1:
+                                        action=1   
+                                        ok=True
+                                    if f_name.find('Romove_Cover') !=-1:
+                                        action=2   
+                                        ok=True
+                                                                              
+                                    
+                                    row=np.append(row,action)
+                                    if ok==True:
+                                        Sheets_det+=1
+                                        with open(foldername+"tracking_sheet_"+ train_object +".csv","a", newline='') as trackingF:
+                                                    tracking_info = csv.writer(trackingF, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                                                    tracking_info.writerow(row)                                        
+
+                except FileNotFoundError:
+                                   pass
                 f.close()
                 
     
@@ -259,8 +431,9 @@ def train_test_teasers_split(train_object,D_size,ACTIONS):
     
              with open(folderdrop+"Action_train_"+ train_object +".csv","a", newline='') as Train_F:
                  tracking_info = csv.writer(Train_F, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-                 tracking_info.writerow(main_row)                       
-    
+                 tracking_info.writerow(main_row)    
+                 
+                 
 def just_split(train_object,D_size,ACTIONS)    :
         
     foldername = os.path.join(ROOT_DIR,"DNN\\data_"+train_object+"\\train_test_split\\")
@@ -362,9 +535,10 @@ def pred_norm(pred_object,D_size,step):
       except OSError as exc: 
         if exc.errno != errno.EEXIST:
             raise
-    
-    os.remove(foldername+'predict_'+pred_object+'.csv')
-
+    try :
+        os.remove(foldername+'predict_'+pred_object+'.csv')
+    except FileNotFoundError:
+        pass 
 
     for root,dirs,files in os.walk(foldername):
  
@@ -386,7 +560,7 @@ def pred_norm(pred_object,D_size,step):
                         
                         X=tracking_sheet[0] 
                         Y=tracking_sheet[1]
-                        print('Points_found',len(tracking_sheet))
+                        print('Points found : ',len(tracking_sheet))
                         for i in range(len(tracking_sheet)):
            
         
@@ -479,14 +653,14 @@ def train(train_object,D_size,ACTIONS,train_with_predict):
   
   
   classifier =tf.estimator.DNNClassifier(feature_columns=feature_columns,
-                                              hidden_units=[61,122,244,488,976,976,488,244,122,61],model_dir=model_dir,
+                                              hidden_units=[61,122,244,488,488,244,122,61],model_dir=model_dir,
                                               n_classes=len(ACTIONS))
   
   
   
   classifier.train(
     input_fn=lambda: train_input_fn(train_x.astype(int), train_y.astype(int), batch_size=BATCH_SIZE),
-    steps=10000)
+    steps=1000)
   
   
   
@@ -546,7 +720,7 @@ def predict(pred_object,D_size,ACTIONS):
                        for key in train_x.keys()]  
       
     classifier =tf.estimator.DNNClassifier(feature_columns=feature_columns,
-                                                  hidden_units=[101,202,202,404,404,202,202,101],model_dir=model_dir,
+                                                  hidden_units=[61,122,244,488,488,244,122,61],model_dir=model_dir,
                                                   n_classes=len(ACTIONS))
       
       
