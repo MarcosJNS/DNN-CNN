@@ -1,0 +1,67 @@
+-----------------------------------------
+Pasos a seguir para el uso de la red MLP
+-----------------------------------------
+
+
+Los comandos típicos se usan desde el programa 'main.py' dentro de la carpeta 'DNN'.
+Dentro del script hay comentadas tres órdenes (train, predict, predict2train). Cada una de estas órdenes irá al script 'pipeline.py' que 
+se encarga de transformarlas en llamdas a las distintas funciones de la biblioteca 'DNNAnalysis_Lib.py'. En el programa 'main.py' hay que elegir 
+el modelo del objeto a entrenar, en este caso se han desarrollado dos modelos (para las manos y para la sartén). Lo cual hay que indicar en la llamda a pipeline.
+
+Además hay otros dos parametros 'gather_data' npormalmente está en false. Los datos que se usan generalmente vienen directamente de los vídeos que se van haciendo, 
+no obstante hay veces que se quiere coger datos con más precisión y saignarle acciones. Si este argumento se pone en 'True' en vez de buscar los datos en el 
+fichero 'train_ready' procesará, ordenará e implementará los datos de 'classfied' par aentrenamiento NO se recomienda esta opción, mejor dejarlo en FALSE.
+
+EL último es train with 'predict_train'. Si está en TRUE, seleccionará los archivo de 'train_ready' con el nombre 'Predict_' de entrenamiento y validación. 
+Si nó elegirá los normales de la misma carpeta 'Action_'de entrenamiento y validación.
+
+
+
+
+
+****El entrenamiento y preicción de la red MLP junto con la detección Mask R-CNN sigue el siguiente proceso*******
+
+
+-Entrenamiento: 
+
+-Para entrenar la red hay que empezar por ejecutar la red MAsk R-CNN con el script dentro de la carpeta CNN llamdo 'CNN_Detection_Save_Tracking.py'. Este envía las posiciones 
+de los objetos detectados a las carpetas de datos('raw_data_'objeto'') de los modelos de cada objeto dentro de sus carpetas (de momento hay carpetas de los objetos 
+sartén y manos, carpetas 'data_pan' y 'data_hand').
+
+-Tras esto, dentro de las carpetas de cada objeto (carpetas 'data_pan' y 'data_hand') se eligen los .csv con los datos de los vídeos que se quieran catalogar y se meten 
+en la carpeta llamada 'data_prediction' que al ejecutarla normalizará los datos creando el .csv llamado 'predict_'object'.csv'. Si aun no se ha entrenado el modelo 
+ninguna vez dará error porque no se podrán predecir dichos datos, pero el archivo normalizado se habrá creado. Para ejecutarlo hay que ejecutar en 'main.py' el comando 
+pipeline((el objeto que se utilice: 'pan' o 'hand'), 'predict', gather_data=False, predict_train=True).
+Tras esto, habrá que abrir el archivo 'predict_'object'.csv' y darle a cada fila de posiciones la acción que se realiza. Como ejemplo se puede echar un vistazo a 
+los datos ya normalizados dentro de la carpeta 'train_test_split'.
+
+- Una vez se tienen los datos normalizados y etiquetas con la acción que realiza cada fila de datos se copia y pega este archivo en la carpeta'train_test_split'. 
+Aquí habrá que cambiarle el nombre por el de 'predict4train.csv' o  copiar las celdas y añadirlas dentro del archivo ya creado con este nombre ('predict4train.csv'). 
+Para que divida y randomize los datos hay que ejecutar en el programa 'main.py' y ejecutar el comando asi: pipeline((el objeto que se utilice: 'pan' o 'hand'), 
+'predict2train', gather_data=False, predict_train=True).
+
+-Finalmente se copian los archivos optenidos que se encuentran en la subcarpeta 'splitted' dentro de 'train_test_split' llamados 'Predict_test_'objeto'.csv' y 
+'Predict_test_'objecto'.csv'. Se ejecuta el entrenamiento con el comando en 'main.py': pipeline((el objeto que se utilice: 'pan' o 'hand'), 'train', gather_data=False, 
+predict_train=True).
+
+
+-Predicción:
+
+Para ver como de bien predice la red (predicción sin tiempo real), se pueden ejecutar los .csv con datos que no se han utilizado para entrenar de dentro de 'raw_data' 
+siguiendo el proceso explicado para predicción en la primera parte del entrenamiento:
+
+
+-Para predicción sin que sea en tiempo real, hay que empezar por ejecutar la red MAsk R-CNN con el script dentro de la carpeta CNN llamdo 'CNN_Detection_Save_Tracking.py'. 
+Este envía las posiciones de los objetos detectados a las carpetas de datos('raw_data_'objeto'') de los modelos de cada objeto dentro de sus carpetas (de momento hay carpetas 
+de los objetos sartén y manos, carpetas 'data_pan' y 'data_hand'). Ahí aparecen en una columna el número de la acción detectada.
+
+-Tras esto, dentro de las carpetas de cada objeto (carpetas 'data_pan' y 'data_hand') se eligen los .csv con los datos de los vídeos que se quieran catalogar y se meten 
+en la carpeta llamada 'data_prediction' que al ejecutarla normalizará los datos creando el .csv llamado 'predict_'object'.csv'. Si aun no se ha entrenado el modelo 
+ninguna vez dará error porque no se podrán predecir dichos datos. Si hay modelo, predecirá la etiquea (acción) que se realiza en cada línea de datos. Devolviendo un archivo .csv llamado
+''objecto'_prediction_results.csv' que se encuentra dentro de la carpeta 'DNN'.
+Para ejecutarlo hay que ejecutar en 'main.py' el comando pipeline((el objeto que se utilice: 'pan' o 'hand'), 'predict', gather_data=False, predict_train=True).
+
+Si funciona bien la predicción y solo queremos que en el vídeo devuelva las acciones que se realizan. se ejecuta en la carpeta 'CNN' el script 'CNN_Action_Recognition.py'
+que no almacena el tracking si no que va enviando las posiciones directamente a los modelos MLP de cada objeto para devolver al script en tiempo real la acción que predice 
+que se está realizando para enseñarla en el vídeo mismo. Así que no hay que realizar ninguna acción.
+-
