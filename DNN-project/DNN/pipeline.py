@@ -18,8 +18,7 @@ sys.path.append("C:\Program Files (x86)\IronPython 2.7\Lib")
 
 #Actions we are going to train and predict.
 ACTIONS_pan = ['NaN', 'Place', 'Remove','Saltear']
-#ACTIONS_hand=['NaN','Stir','RemoveCover']
-ACTIONS_hand=['NaN','Stir']
+ACTIONS_hand=['NaN','Stir','Skip','Back']
 
 
 
@@ -33,13 +32,13 @@ def train(gather_data,predict_train,obj,N,actions,Steps):
     
 
 def predict(obj,N,actions,Steps):
-
+        vectorNaN=[]
         DNNAnalysis_Lib.pred_norm(obj,N,Steps)  
-        DNNAnalysis_Lib.predict(obj,N,actions)
+        DNNAnalysis_Lib.predict(obj,N,actions,real_time=False, vector=vectorNaN)
         
 def predict2train(obj,N,actions):        
         DNNAnalysis_Lib.just_split(obj,N,actions)
-        
+
 def query(arg,obj,gather_data,predict_train,N,actions,Steps):
     
     if arg =='train': train(gather_data,predict_train,obj,N,actions,Steps),
@@ -48,7 +47,7 @@ def query(arg,obj,gather_data,predict_train,N,actions,Steps):
     
     if arg =='predict2train': predict2train(obj,N,actions)
         
-    else :
+    else  :
         print(arg, 'query not found')
     
     

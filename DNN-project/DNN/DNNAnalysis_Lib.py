@@ -2,22 +2,29 @@
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
+from sklearn.metrics import confusion_matrix
+from textwrap import wrap
+
+
+import re
 import os
 import collections
 import numpy as np
 import tensorflow as tf
+import tfplot
 import pandas as pd
 import csv
 import cv2
 import errno
 import sys
+import itertools
 
 
 sys.path.append("C:\Program Files (x86)\IronPython 2.7\Lib")
 import random
 ROOT_DIR=os.path.abspath("../")
 BATCH_SIZE = 10
-ACTIONS_pan = ['NaN', 'Place', 'Remove']
+ACTIONS_pan = ['NaN', 'Place', 'Remove','Saute']
 
 
 
@@ -454,76 +461,82 @@ def just_split(train_object,D_size,ACTIONS)    :
         if exc.errno != errno.EEXIST:
             raise
        
-
-    for root,dirs,files in os.walk(foldername):
-        for file in files:
-           if file.endswith(".csv"):
-                csv_f=os.path.join(foldername,file)
-           
-                try:
-                        f=open(csv_f, 'r')
-                  
-                        
-                        tracking_sheet=pd.read_csv(f, header=None, error_bad_lines=False) 
+    try:
+        f_track=open(foldername+"predict4train.csv", 'r')   
+        data = pd.read_csv(f_track, header=None)
+        ds = data.sample(frac=1)
+        try:
+            os.remove(foldername+"suffled_data.csv")
+        except OSError:
+            pass
         
-                        try:
-                            os.remove(folderdrop + 'Predict_test_'+ train_object +'.csv')
-                        except OSError:
-                            pass
-                        try:
-                            os.remove(folderdrop + 'Predict_train_'+ train_object +'.csv')
-                        except OSError:
-                            pass
-                        
-                        Sheets_det=len(tracking_sheet)
-                        
-                        
-                        test_var=round(0.2*Sheets_det)
-                        
-                        info_row_train=[]
-                        info_row_train.append(Sheets_det-test_var)
-                        info_row_train.append(2*D_size)
-                        for i in range(len(ACTIONS)): 
-                        
-                            info_row_train.append(ACTIONS[i])
-                        
-                        info_row_test=[]
-                        info_row_test.append(test_var)
-                        info_row_test.append(2*D_size)
-                        for i in range(len(ACTIONS)): 
-                        
-                            info_row_test.append(ACTIONS[i])
+
+        ds.to_csv(foldername+"suffled_data.csv", index=False,header=False)              
+        tracking_sheet=pd.read_csv(foldername+"suffled_data.csv", header=None, error_bad_lines=False) 
+    
+        try:
+            os.remove(folderdrop + "Predict_test_"+ train_object +".csv")
+        except OSError:
+            pass
+        try:
+            os.remove(folderdrop + "Predict_train_"+ train_object +".csv")
+        except OSError:
+            pass
+        
+        Sheets_det=len(tracking_sheet)
+        
+        
+        test_var=round(0.2*Sheets_det)
+        
+        info_row_train=[]
+        info_row_train.append(Sheets_det-test_var)
+        info_row_train.append(2*D_size)
+        for i in range(len(ACTIONS)): 
+        
+            info_row_train.append(ACTIONS[i])
+        
+        info_row_test=[]
+        info_row_test.append(test_var)
+        info_row_test.append(2*D_size)
+        for i in range(len(ACTIONS)): 
+        
+            info_row_test.append(ACTIONS[i])
+     
+                      
+        test_values=np.random.choice(Sheets_det, size=test_var, replace=False)
+        
+        
+        with open(folderdrop+"Predict_test_"+ train_object +".csv","a", newline='') as Test_F:
+                    tracking_info = csv.writer(Test_F, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                    tracking_info.writerow(info_row_test)
+        
+       
+        with open(folderdrop+"Predict_train_"+ train_object +".csv","a", newline='') as Train_F:
+                     tracking_info = csv.writer(Train_F, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                     tracking_info.writerow(info_row_train) 
+        
+        for i in range(Sheets_det):
+            
+            main_row=tracking_sheet.values[i,:]
+            if i in  test_values:
+        
+                
+                with open(folderdrop+"Predict_test_"+ train_object +".csv","a", newline='') as Test_F:
+                    tracking_info = csv.writer(Test_F, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                    tracking_info.writerow(main_row)
+                
+            else :
+        
+                 with open(folderdrop+"Predict_train_"+ train_object +".csv","a", newline='') as Train_F:
+                     tracking_info = csv.writer(Train_F, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                     tracking_info.writerow(main_row)    
                      
-                                      
-                        test_values=np.random.choice(Sheets_det, size=test_var, replace=False)
+    
                         
                         
-                        with open(folderdrop+"Predict_test_"+ train_object +".csv","a", newline='') as Test_F:
-                                    tracking_info = csv.writer(Test_F, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-                                    tracking_info.writerow(info_row_test)
-                        
-                       
-                        with open(folderdrop+"Predict_train_"+ train_object +".csv","a", newline='') as Train_F:
-                                     tracking_info = csv.writer(Train_F, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-                                     tracking_info.writerow(info_row_train) 
-                        
-                        for i in range(Sheets_det):
-                            
-                            main_row=tracking_sheet.values[i,:]
-                            if i in  test_values:
-                        
-                                
-                                with open(folderdrop+"Predict_test_"+ train_object +".csv","a", newline='') as Test_F:
-                                    tracking_info = csv.writer(Test_F, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-                                    tracking_info.writerow(main_row)
-                                
-                            else :
-                        
-                                 with open(folderdrop+"Predict_train_"+ train_object +".csv","a", newline='') as Train_F:
-                                     tracking_info = csv.writer(Train_F, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-                                     tracking_info.writerow(main_row)      
-                except FileNotFoundError:
-                            pass
+    except FileNotFoundError:
+        print("predict4train.csv not found at:", foldername)
+        pass
 
 def pred_norm(pred_object,D_size,step):
     
@@ -589,10 +602,6 @@ def pred_norm(pred_object,D_size,step):
 
                 except FileNotFoundError:
                                    pass
-                
-                
-    
-
 
 
 def train(train_object,D_size,ACTIONS,train_with_predict):
@@ -654,13 +663,15 @@ def train(train_object,D_size,ACTIONS,train_with_predict):
   
   classifier =tf.estimator.DNNClassifier(feature_columns=feature_columns,
                                               hidden_units=[61,122,244,488,488,244,122,61],model_dir=model_dir,
-                                              n_classes=len(ACTIONS))
+                                              n_classes=len(ACTIONS), optimizer=tf.train.ProximalAdagradOptimizer(learning_rate=0.001, 
+                                              l1_regularization_strength=0.0001))
+
   
-  
+#  hidden_units=[61,122,122,61]  
   
   classifier.train(
     input_fn=lambda: train_input_fn(train_x.astype(int), train_y.astype(int), batch_size=BATCH_SIZE),
-    steps=1000)
+    steps=10000)
   
   
   
@@ -673,26 +684,24 @@ def train(train_object,D_size,ACTIONS,train_with_predict):
                    for key in train_x.keys()]
   feature_spec = tf.feature_column.make_parse_example_spec(feature_columns)
   serving_input_receiver_fn = tf.estimator.export.build_parsing_serving_input_receiver_fn(feature_spec)
-  export_dir = classifier.export_savedmodel('model_info', serving_input_receiver_fn)
+  export_dir = classifier.export_saved_model('model_info', serving_input_receiver_fn)
   print('Exported to {}'.format(export_dir))
   print('Test set accuracy: {accuracy:0.3f}'.format(**eval_result))
-
-
- 
-
+  
+  
 
 
 
 
-def predict(pred_object,D_size,ACTIONS):
+def predict(pred_object,D_size,ACTIONS,real_time,vector):
  
     
     global  BATCH_SIZE 
     
     model_dir = os.path.join(ROOT_DIR,"DNN\\data_"+pred_object+"\\model_"+pred_object+"\\model_info\\")
-    model_dir = os.path.join(ROOT_DIR,"DNN\\data_"+pred_object+"\\model_"+pred_object+"\\model_info\\")
+
     foldername = os.path.join(ROOT_DIR,"DNN\\data_"+pred_object+"\\data_prediction\\predict_"+pred_object+".csv")   
-    TRAINING=os.path.join(ROOT_DIR,"DNN\\data_"+pred_object+"\\train_ready\\Action_train_"+ pred_object +".csv")
+    TRAINING = os.path.join(ROOT_DIR,"DNN\\data_"+pred_object+"\\train_ready\\Action_train_"+ pred_object +".csv")
     
     def predict_input_fn(features, labels, batch_size):
         features = dict(features)
@@ -718,44 +727,161 @@ def predict(pred_object,D_size,ACTIONS):
 
     feature_columns = [tf.feature_column.numeric_column(key=key)
                        for key in train_x.keys()]  
+
+    classifier =tf.estimator.DNNClassifier(feature_columns=feature_columns, hidden_units=[61,122,244,488,488,244,122,61],model_dir=model_dir, 
+                                           n_classes=len(ACTIONS), optimizer=tf.train.ProximalAdagradOptimizer(learning_rate=0.001, 
+                                              l1_regularization_strength=0.0001))
       
-    classifier =tf.estimator.DNNClassifier(feature_columns=feature_columns,
-                                                  hidden_units=[61,122,244,488,488,244,122,61],model_dir=model_dir,
-                                                  n_classes=len(ACTIONS))
       
-      
-  
-      
-    f_track=open(foldername, 'r')
-    predict_sheet=pd.read_csv(f_track, header=None)         
+    predict_x  = {} 
+
+    if real_time == False:   
         
+        f_track=open(foldername, 'r')
+        predict_sheet=pd.read_csv(f_track, header=None) 
+        predict_x  = {} 
         
-    predict_x  = {}       
-    for i in range(D_size*2):
-            main_row=predict_sheet.values[:,i]
-        
-            write_dict={str(i) : main_row}
-            predict_x.update(write_dict)
-    print(main_row)    
+        for i in range(D_size*2):
+                main_row=predict_sheet.values[:,i]
+            
+                write_dict={str(i) : main_row}
+                
+                predict_x.update(write_dict) 
+    
+
+    if real_time == True:
+       
+        predict_sheet=vector 
+        for i in range(D_size):
+                main_row=[]
+                main_row.append(predict_sheet[0][i])
+                write_dict={str(i) : np.asanyarray(main_row)}
+                predict_x.update(write_dict)   
+        for i in range(D_size):
+                main_row=[]
+                main_row.append(predict_sheet[1][i])
+                
+                write_dict={str(D_size+i) :  np.asanyarray(main_row)}
+                predict_x.update(write_dict)   
+
     predictions =classifier.predict(
             input_fn=lambda: predict_input_fn(predict_x, labels=None,batch_size=BATCH_SIZE))
-    i=0    
     
     
-    try:
-        os.remove(pred_object + "_prediction_results.csv")
-    except OSError:
-        pass
-    
-    for prediction in zip(predictions):
+    if real_time == True:
+        for prediction in zip(predictions):
             class_id = prediction[0]
             class_ID=class_id["classes"]
-            probability = class_id["probabilities"]
-            print(probability)
             class_ID=str(class_ID)
-            print(class_ID)
-            i+=1
-            
-            with open(pred_object + "_prediction_results.csv","a", newline='') as trackingF:
-                tracking_info = csv.writer(trackingF, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-                tracking_info.writerow(class_ID)
+            return class_ID
+    
+    
+    i=0    
+    if real_time == False: 
+        try:
+            os.remove(pred_object + "_prediction_results.csv")
+        except OSError:
+            pass
+        
+        for prediction in zip(predictions):
+                class_id = prediction[0]
+                class_ID=class_id["classes"]
+                probability = class_id["probabilities"]
+                print(probability)
+                class_ID=str(class_ID)
+                print(class_ID)
+                i+=1
+                
+                with open(pred_object + "_prediction_results.csv","a", newline='') as trackingF:
+                    tracking_info = csv.writer(trackingF, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                    tracking_info.writerow(class_ID)
+
+
+#def predictt(pred_object,D_size,ACTIONS):
+# 
+#    
+#    global  BATCH_SIZE 
+#    
+#    model_dir = os.path.join(ROOT_DIR,"DNN\\data_"+pred_object+"\\model_"+pred_object+"\\model_info\\")
+#
+#    foldername = os.path.join(ROOT_DIR,"DNN\\data_"+pred_object+"\\data_prediction\\predict_"+pred_object+".csv")   
+#    TRAINING = os.path.join(ROOT_DIR,"DNN\\data_"+pred_object+"\\train_ready\\Action_train_"+ pred_object +".csv")
+#    
+#    def predict_input_fn(features, labels, batch_size):
+#        features = dict(features)
+#        inputs = (features, labels) if labels is not None else features
+#        dataset = tf.data.Dataset.from_tensor_slices(inputs)
+#        dataset = dataset.batch(batch_size)
+#        return dataset
+#    
+#    COLUMN_NAMES=[]
+#    for i in range(D_size*2+1):
+#  
+#      if i<D_size*2+1:     
+#         COLUMN_NAMES.append(str(i))
+#      else :
+#         COLUMN_NAMES.append('action')
+#         
+#    y_name = str(D_size*2)   
+#    
+#
+#
+#    train = pd.read_csv(TRAINING, names=COLUMN_NAMES, header=0)
+#    train_x, train_y = train, train.pop(y_name)     
+#
+#    feature_columns = [tf.feature_column.numeric_column(key=key)
+#                       for key in train_x.keys()]  
+#
+#    classifier =tf.estimator.DNNClassifier(feature_columns=feature_columns, hidden_units=[61,122,244,488,488,244,122,61],model_dir=model_dir, 
+#                                           n_classes=len(ACTIONS), optimizer=tf.train.ProximalAdagradOptimizer(learning_rate=0.001, 
+#                                              l1_regularization_strength=0.0001))
+#    
+#    
+#    predict_x  = {} 
+#
+#        
+#    f_track=open(foldername, 'r')
+#    predict_sheet=pd.read_csv(f_track, header=None) 
+#    predict_x  = {} 
+#    
+#    for i in range(D_size*2):
+#            main_row=predict_sheet.values[:,i]
+#        
+#            write_dict={str(i) : main_row}
+#            
+#            predict_x.update(write_dict) 
+#         
+#    print(classifier.get_variable_value("dnn/hiddenlayer_0/kernel"))
+#    print(classifier.get_variable_value("dnn/hiddenlayer_0/kernel")) 
+#    
+#    
+#    def serving_input_fn():
+#        feature_placeholders = {
+#          'var1' : tf.placeholder(tf.float32, [None]),
+#          'var2' : tf.placeholder(tf.float32, [None]),
+#    
+#        }
+#        features = {
+#            key: tf.expand_dims(tensor, -1)
+#            for key, tensor in feature_placeholders.items()
+#        }
+#        return tf.estimator.export.ServingInputReceiver(features, 
+#                                                        feature_placeholders)
+#        
+#        
+##    serving_input_receiver_fn=classifier.estimator.export.build_raw_serving_input_receiver_fn(
+##    predict_x,
+##    default_batch_size=None
+##    )    
+#    classifier.export_saved_model(
+#    model_dir,
+#    serving_input_receiver_fn=lambda:predict_input_fn(predict_x, labels=None,batch_size=BATCH_SIZE),
+#    assets_extra=None,
+#    as_text=False,
+#    checkpoint_path=None,
+#    experimental_mode=tf.estimator.ModeKeys.PREDICT
+#                                    )
+#    
+#ACTIONS_hand=['NaN','Stir','Skip','Back']
+#predictt('hand',30,ACTIONS_hand)
+# 
